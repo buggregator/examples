@@ -7,6 +7,14 @@ use Tests\TestCase;
 
 class SentryTest extends TestCase
 {
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        ray()->disable();
+        logger()->setDefaultDriver('null');
+    }
+
     function test_report()
     {
         try {

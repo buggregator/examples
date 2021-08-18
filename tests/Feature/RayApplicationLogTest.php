@@ -5,13 +5,13 @@ namespace Tests\Feature;
 
 use Tests\TestCase;
 
-class MonologTest extends TestCase
+class RayApplicationLogTest extends TestCase
 {
     protected function setUp(): void
     {
         parent::setUp();
 
-        ray()->disable();
+        logger()->setDefaultDriver('null');
     }
 
     function test_debug()
