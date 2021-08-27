@@ -90,7 +90,10 @@ class RayLaravelTest extends TestCase
             User::firstWhere('email', 'john@example.com')
         );
 
-        ray()->model(User::all());
+        ray()->model(new User([
+            'username' => 'john',
+            'email' => 'john@example.com'
+        ]));
 
         $this->assertTrue(true);
     }

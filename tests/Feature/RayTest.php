@@ -7,13 +7,31 @@ use Tests\TestCase;
 
 class RayTest extends TestCase
 {
+    function test_new_screen()
+    {
+        ray()->newScreen();
+
+        $this->assertTrue(true);
+    }
+
+    function test_clear_all()
+    {
+        ray()->clearAll();
+
+        $this->assertTrue(true);
+    }
+
     function test_log()
     {
-        ray('a string');
+        ray('Hello', 'World');
 
         ray(['an array']);
 
+        ray(true, false);
+
         ray($this);
+
+        ray(['a' => 1, 'b' => ['c' => 3]]);
 
         $this->assertTrue(true);
     }
@@ -46,23 +64,9 @@ class RayTest extends TestCase
         $this->assertTrue(true);
     }
 
-    function test_new_screen()
-    {
-        ray()->newScreen();
-
-        $this->assertTrue(true);
-    }
-
     function test_new_screen_with_name()
     {
         ray()->newScreen('My debug screen');
-
-        $this->assertTrue(true);
-    }
-
-    function test_clear_all()
-    {
-        ray()->clearAll();
 
         $this->assertTrue(true);
     }
