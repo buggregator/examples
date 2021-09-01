@@ -29,7 +29,7 @@ class RayTest extends TestCase
 
         ray(true, false);
 
-        ray($this);
+        ray(ray());
 
         ray(['a' => 1, 'b' => ['c' => 3]]);
 
