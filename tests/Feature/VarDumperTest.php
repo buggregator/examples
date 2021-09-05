@@ -18,18 +18,33 @@ class VarDumperTest extends TestCase
         $_SERVER['VAR_DUMPER_FORMAT'] = 'server';
     }
 
-    function test_dump()
+    function test_dump_string()
     {
         dump('Hello', 'World');
+        $this->assertTrue(true);
+    }
 
-        dump(['an array']);
-
-        dump(true, false);
-
-        dump(ray());
-
+    function test_dump_array()
+    {
         dump(['a' => 1, 'b' => ['c' => 3]]);
+        $this->assertTrue(true);
+    }
 
+    function test_dump_bool()
+    {
+        dump(true, false);
+        $this->assertTrue(true);
+    }
+
+    function test_dump_int()
+    {
+        dump(1);
+        $this->assertTrue(true);
+    }
+
+    function test_dump_object()
+    {
+        dump(ray());
         $this->assertTrue(true);
     }
 

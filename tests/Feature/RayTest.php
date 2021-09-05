@@ -21,18 +21,41 @@ class RayTest extends TestCase
         $this->assertTrue(true);
     }
 
-    function test_log()
+    function test_clear_screen()
+    {
+        ray()->clearScreen();
+
+        $this->assertTrue(true);
+    }
+
+    function test_log_int()
+    {
+        ray(...range(0, 9));
+
+        $this->assertTrue(true);
+    }
+
+    function test_log_string()
     {
         ray('Hello', 'World');
+        $this->assertTrue(true);
+    }
 
-        ray(['an array']);
-
-        ray(true, false);
-
-        ray(ray());
-
+    function test_log_array()
+    {
         ray(['a' => 1, 'b' => ['c' => 3]]);
+        $this->assertTrue(true);
+    }
 
+    function test_log_bool()
+    {
+        ray(true, false);
+        $this->assertTrue(true);
+    }
+
+    function test_log_object()
+    {
+        ray(ray());
         $this->assertTrue(true);
     }
 

@@ -17,7 +17,11 @@ class OrderShipped extends Mailable
      */
     public function __construct()
     {
-        //
+        $this->subject('Hello world')
+            ->cc(['cc@site.com'])
+            ->bcc(['bcc@site.com'])
+            ->replyTo('reply-to@site.com', 'To name')
+            ->attach(app()->basePath('.env.example'));
     }
 
     /**
@@ -27,6 +31,7 @@ class OrderShipped extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.orders.shipped');
+        return $this
+            ->markdown('emails.orders.shipped');
     }
 }

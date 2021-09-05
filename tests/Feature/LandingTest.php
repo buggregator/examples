@@ -18,7 +18,7 @@ class LandingTest extends TestCase
     {
         ray()->trace()->hide();
 
-        ray($this)->hide();
+        ray(ray())->hide();
 
         ray(['I\'m RayServer'])->blue()->label('Welcome');
         ray('Hello Artisans!')->large();
