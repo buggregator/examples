@@ -5,11 +5,12 @@ namespace Tests\Feature;
 
 use Tests\TestCase;
 
-class MonologTest extends TestCase
+class MonologSlackTest extends TestCase
 {
     protected function setUp(): void
     {
         parent::setUp();
+        logger()->setDefaultDriver('slack');
 
         ray()->disable();
     }
