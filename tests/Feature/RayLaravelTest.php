@@ -79,8 +79,9 @@ class RayLaravelTest extends TestCase
     function test_show_http_client_requests()
     {
         ray()->showHttpClientRequests();
-        Http::get('https://jsonplaceholder.typicode.com/posts/1');
-
+        Http::get('https://ya.ru', [
+            'heloo' => 'world'
+        ]);
         $this->assertTrue(true);
     }
 

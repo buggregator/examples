@@ -10,25 +10,15 @@ class OrderShipped extends Mailable
 {
     use Queueable, SerializesModels;
 
-    /**
-     * Create a new message instance.
-     *
-     * @return void
-     */
-    public function __construct()
+    public function __construct(string $subject)
     {
-        $this->subject('Hello world')
+        $this->subject($subject)
             ->cc(['cc@site.com'])
             ->bcc(['bcc@site.com'])
             ->replyTo('reply-to@site.com', 'To name')
             ->attach(app()->basePath('.env.example'));
     }
 
-    /**
-     * Build the message.
-     *
-     * @return $this
-     */
     public function build()
     {
         return $this
