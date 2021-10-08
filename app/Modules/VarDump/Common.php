@@ -12,6 +12,7 @@ trait Common
         ray()->disable();
 
         VarDumper::setHandler();
+        $_SERVER['VAR_DUMPER_SERVER'] = env('VAR_DUMPER_SERVER', '127.0.0.1:9912');
         $_SERVER['VAR_DUMPER_FORMAT'] = 'server';
     }
 

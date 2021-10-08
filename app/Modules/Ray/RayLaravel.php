@@ -105,7 +105,7 @@ trait RayLaravel
     {
         ray()->showViews();
 
-        view('welcome', ['name' => 'John Doe'])->render();
+        view('inspector', ['name' => 'John Doe'])->render();
     }
 
     /** @test */
