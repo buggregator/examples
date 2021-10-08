@@ -53,6 +53,7 @@ return [
     */
 
     'url' => env('APP_URL', 'http://localhost'),
+    'buggregator_url' => env('BUGGREGATOR_URL'),
 
     'asset_url' => env('ASSET_URL', null),
 
