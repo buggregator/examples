@@ -3,97 +3,23 @@ declare(strict_types=1);
 
 namespace Tests\Feature;
 
+use App\Modules\Monolog\Common;
 use Tests\TestCase;
 
 class RayApplicationLogTest extends TestCase
 {
+    use Common;
+
     protected function setUp(): void
     {
         parent::setUp();
 
-        logger()->setDefaultDriver('null');
+        $this->setUpRayLogger();
     }
 
-    function test_debug()
+    protected function tearDown(): void
     {
-        logger()->debug('Hello debug', [
-            'foo' => 'bar'
-        ]);
-
-        $this->assertTrue(true);
-    }
-
-    function test_info()
-    {
-        logger()->info('Hello info', [
-            'foo' => 'bar'
-        ]);
-
-        $this->assertTrue(true);
-    }
-
-    function test_warning()
-    {
-        logger()->warning('Hello warning', [
-            'foo' => 'bar'
-        ]);
-
-        $this->assertTrue(true);
-    }
-
-    function test_error()
-    {
-        logger()->error('Hello error', [
-            'foo' => 'bar'
-        ]);
-
-        $this->assertTrue(true);
-    }
-
-    function test_critical()
-    {
-        logger()->critical('Hello critical', [
-            'foo' => 'bar'
-        ]);
-
-        $this->assertTrue(true);
-    }
-
-    function test_notice()
-    {
-        logger()->notice('Hello notice', [
-            'foo' => 'bar'
-        ]);
-
-        $this->assertTrue(true);
-    }
-
-    function test_alert()
-    {
-        logger()->alert('Hello alert', [
-            'foo' => 'bar'
-        ]);
-
-        $this->assertTrue(true);
-    }
-
-    function test_emergency()
-    {
-        logger()->emergency('Hello emergency', [
-            'foo' => 'bar'
-        ]);
-
-        $this->assertTrue(true);
-    }
-
-    function test_exception()
-    {
-        try {
-            throw new \Exception('Something went wrong');
-        } catch (\Throwable $e) {
-            logger()->error($e);
-        }
-
+        parent::tearDown();
 
         $this->assertTrue(true);
     }

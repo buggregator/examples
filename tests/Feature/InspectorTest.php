@@ -3,12 +3,13 @@ declare(strict_types=1);
 
 namespace Tests\Feature;
 
+use App\Modules\Inspector\Common;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Tests\TestCase;
 
 class InspectorTest extends TestCase
 {
-    use DatabaseMigrations;
+    use DatabaseMigrations, Common;
 
     protected function setUp(): void
     {
@@ -16,7 +17,15 @@ class InspectorTest extends TestCase
         $this->artisan('db:seed');
     }
 
-    public function testInspect()
+    protected function tearDown(): void
+    {
+        parent::tearDown();
+
+        $this->assertTrue(true);
+    }
+
+    /** @test */
+    public function inspect()
     {
         $this->get('/inspector')
             ->assertOk();

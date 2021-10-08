@@ -3,58 +3,23 @@ declare(strict_types=1);
 
 namespace Tests\Feature;
 
-use Symfony\Component\VarDumper\VarDumper;
+use App\Modules\VarDump\Common;
 use Tests\TestCase;
 
 class VarDumperTest extends TestCase
 {
+    use Common;
+
     protected function setUp(): void
     {
         parent::setUp();
 
-        ray()->disable();
-
-        VarDumper::setHandler();
-        $_SERVER['VAR_DUMPER_FORMAT'] = 'server';
+        $this->setUpVarDumper();
     }
 
-    function test_dump_string()
+    protected function tearDown(): void
     {
-        dump('Hello', 'World');
-        $this->assertTrue(true);
-    }
-
-    function test_dump_array()
-    {
-        dump(['a' => 1, 'b' => ['c' => 3]]);
-        $this->assertTrue(true);
-    }
-
-    function test_dump_bool()
-    {
-        dump(true, false);
-        $this->assertTrue(true);
-    }
-
-    function test_dump_int()
-    {
-        dump(1);
-        $this->assertTrue(true);
-    }
-
-    function test_dump_object()
-    {
-        dump(ray());
-        $this->assertTrue(true);
-    }
-
-    function test_exception()
-    {
-        try {
-            throw new \Exception('Something went wrong');
-        } catch(\Exception $e) {
-            dump($e);
-        }
+        parent::tearDown();
 
         $this->assertTrue(true);
     }

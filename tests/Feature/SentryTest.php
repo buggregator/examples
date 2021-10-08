@@ -3,25 +3,23 @@ declare(strict_types=1);
 
 namespace Tests\Feature;
 
+use App\Modules\Sentry\Common;
 use Tests\TestCase;
 
 class SentryTest extends TestCase
 {
+    use Common;
+
     protected function setUp(): void
     {
         parent::setUp();
 
-        ray()->disable();
-        logger()->setDefaultDriver('null');
+        $this->setupSentryLogger();
     }
 
-    function test_report()
+    protected function tearDown(): void
     {
-        try {
-            throw new \Exception('Something went wrong');
-        } catch (\Throwable $e) {
-            report($e);
-        }
+        parent::tearDown();
 
         $this->assertTrue(true);
     }
