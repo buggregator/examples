@@ -25,7 +25,7 @@ class CallAction extends Controller
         WithFaker;
 
     private array $setUpMap = [
-        'ray_log:' => 'setUpRayLogger',
+        'ray_logs:' => 'setUpRayLogger',
         'monolog:' => 'setUpSocketMonolog',
         'sentry:' => 'setupSentryLogger',
         'var_dump:' => 'setUpVarDumper',

@@ -57,6 +57,8 @@ return [
 
     'asset_url' => env('ASSET_URL', null),
 
+    'google_tagmanager' => env('GOOGLE_TAGMANAGER_ID', null),
+
     /*
     |--------------------------------------------------------------------------
     | Application Timezone
