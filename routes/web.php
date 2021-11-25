@@ -79,7 +79,7 @@ Route::middleware(\Inspector\Laravel\Middleware\WebRequestMonitoring::class)
         \Illuminate\Support\Facades\Artisan::call('migrate:fresh');
         \Illuminate\Support\Facades\Artisan::call('db:seed');
 
-        \App\Models\User::all();
+        $users = \App\Models\User::all();
 
-        return view('inspector');
+        return view('inspector', compact('users'));
     });

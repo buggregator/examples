@@ -190,8 +190,6 @@ trait RayCommon
     function rayCarbon()
     {
         ray()->carbon(new \Carbon\Carbon());
-
-        $this->assertTrue(true);
     }
 
     /** @test */

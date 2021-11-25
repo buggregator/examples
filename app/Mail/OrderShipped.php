@@ -15,8 +15,7 @@ class OrderShipped extends Mailable
         $this->subject($subject)
             ->cc(['cc@site.com'])
             ->bcc(['bcc@site.com'])
-            ->replyTo('reply-to@site.com', 'To name')
-            ->attach(app()->basePath('.env.example'));
+            ->replyTo('reply-to@site.com', 'To name');
     }
 
     public function build()

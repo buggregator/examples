@@ -1,5 +1,5 @@
 @component('mail::message')
-# Welcome to the Buggregator
+
 
 Debug with Buggregator to fix problems faster
 

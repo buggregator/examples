@@ -18,6 +18,7 @@ trait Common
     public function inspectorRequest()
     {
         $request = Request::create('/inspector');
+
         Route::dispatch($request);
     }
 
