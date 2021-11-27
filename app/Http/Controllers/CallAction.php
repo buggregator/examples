@@ -38,15 +38,15 @@ class CallAction extends Controller
     ];
 
     private array $actionsMap = [
-        'ray_log:debug' => 'monologDebug',
-        'ray_log:info' => 'monologInfo',
-        'ray_log:warning' => 'monologWarning',
-        'ray_log:error' => 'monologError',
-        'ray_log:critical' => 'monologCritical',
-        'ray_log:notice' => 'monologNotice',
-        'ray_log:alert' => 'monologAlert',
-        'ray_log:emergency' => 'monologEmergency',
-        'ray_log:exception' => 'monologException',
+        'ray_logs:debug' => 'monologDebug',
+        'ray_logs:info' => 'monologInfo',
+        'ray_logs:warning' => 'monologWarning',
+        'ray_logs:error' => 'monologError',
+        'ray_logs:critical' => 'monologCritical',
+        'ray_logs:notice' => 'monologNotice',
+        'ray_logs:alert' => 'monologAlert',
+        'ray_logs:emergency' => 'monologEmergency',
+        'ray_logs:exception' => 'monologException',
     ];
 
     public function __invoke(Request $request)
