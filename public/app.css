@@ -1,0 +1,104 @@
+
+.device-desktop {
+  border-width: 1px;
+  height: 1024px;
+}
+
+.device-desktop, .device-desktop > div {
+  border-radius: .375rem;
+  width: 100%
+}
+
+.device-desktop > div {
+  --tw-bg-opacity: 1;
+  background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
+  height: 100%;
+}
+
+.device-tablet {
+  border-radius: 1.5rem;
+  border-width: 2px;
+  justify-content: center;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem
+}
+
+.device-tablet > div {
+  height: 1024px;
+  width: 768px
+}
+
+.device-tablet:after {
+  --tw-bg-opacity: 1;
+  background-color: rgba(245, 245, 245, var(--tw-bg-opacity));
+  border-radius: 9999px;
+  border-width: 1px;
+  content: "";
+  display: block;
+  height: 3rem;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  width: 3rem
+}
+
+.device-mobile {
+  border-radius: 1.5rem;
+  border-width: 2px;
+  justify-content: center;
+  padding-left: .75rem;
+  padding-right: .75rem
+}
+
+.device-mobile > div {
+  height: 568px;
+  width: 320px
+}
+
+.device-mobile:before, .device-tablet:before {
+  height: .75rem;
+  margin-bottom: .5rem;
+  margin-top: .5rem;
+  width: .75rem
+}
+
+.device-mobile:after, .device-mobile:before, .device-tablet:before {
+  --tw-bg-opacity: 1;
+  background-color: rgba(245, 245, 245, var(--tw-bg-opacity));
+  border-radius: 9999px;
+  border-width: 1px;
+  content: "";
+  display: block
+}
+
+.device-mobile:after {
+  height: 2rem;
+  margin-bottom: .75rem;
+  margin-top: .75rem;
+  width: 2rem
+}
+
+.device-desktop, .device-mobile, .device-tablet {
+  --tw-bg-opacity: 1;
+  align-items: center;
+  background-color: rgba(250, 250, 250, var(--tw-bg-opacity));
+  display: flex;
+  flex-direction: column;
+  transition-duration: .15s;
+  transition-duration: .3s;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+  transition-timing-function: cubic-bezier(.4, 0, 1, 1)
+}
+
+.device-mobile > div, .device-tablet > div {
+  --tw-bg-opacity: 1;
+  background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
+  border-radius: .375rem;
+  border-width: 1px
+}
+
+.device-desktop iframe, .device-mobile iframe, .device-tablet iframe {
+  border-radius: .375rem;
+  height: 100%;
+  width: 100%
+}

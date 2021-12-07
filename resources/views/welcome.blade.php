@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link href="/app.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
 
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
@@ -83,9 +84,10 @@
 
     <div class="relative">
         @if(config('app.buggregator_url'))
-            <div class="sticky top-0 p-0 lg:px-10" id="demo">
-                <iframe src="{{ config('app.buggregator_url') }}" frameborder="0" height="600px" class="transform sm:scale-75 lg:scale-100 w-full bg-white border-4 border-blue-600 rounded-lg sticky top-0 w-full shadow-2xl">
-                </iframe>
+            <div class="p-0 lg:px-10" id="demo">
+                <preview >
+                    <iframe src="{{ config('app.buggregator_url') }}" frameborder="0"></iframe>
+                </preview>
             </div>
         @endif
 
@@ -129,6 +131,42 @@
 </div>
 @verbatim
     <script>
+        Vue.component('preview', {
+            props: {
+                device: {
+                    default() {
+                        return 'desktop'
+                    }
+                }
+            },
+            computed: {
+                deviceClass() {
+                    return `device-${this.device}`
+                }
+            },
+            template: `
+<div class="flex flex-col items-center h-full">
+    <div class="flex justify-center mb-5">
+        <button class="p-1 rounded" @click="device = 'mobile'" :class="{'bg-blue-50 text-blue-600': device == 'mobile'}">
+            <svg class="w-10 h-6 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 53"><path fill-rule="evenodd" clip-rule="evenodd" d="M9 1H2a1 1 0 0 0-1 1v49c0 .6.4 1 1 1h24c.6 0 1-.4 1-1V2c0-.6-.4-1-1-1h-7c0 .6-.4 1-1 1h-8a1 1 0 0 1-1-1ZM2 0a2 2 0 0 0-2 2v49c0 1.1.9 2 2 2h24a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2Zm14 49a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z" /></svg>
+        </button>
+        <button @click="device = 'tablet'" class="p-1 rounded" :class="{'bg-blue-50 text-blue-600': device == 'tablet'}">
+            <svg class="w-10 h-6 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38 53"><path fill-rule="evenodd" clip-rule="evenodd" d="M14 1H2a1 1 0 0 0-1 1v49c0 .6.4 1 1 1h34c.6 0 1-.4 1-1V2c0-.6-.4-1-1-1H24c0 .6-.4 1-1 1h-8a1 1 0 0 1-1-1ZM2 0a2 2 0 0 0-2 2v49c0 1.1.9 2 2 2h34a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2Zm32 4H4a1 1 0 0 0-1 1v39c0 .6.4 1 1 1h30c.6 0 1-.4 1-1V5c0-.6-.4-1-1-1ZM4 3a2 2 0 0 0-2 2v39c0 1.1.9 2 2 2h30a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H4Zm15 48a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" /></svg>
+        </button>
+        <button @click="device = 'desktop'" class="p-1 rounded" :class="{'bg-blue-50 text-blue-600': device == 'desktop'}">
+            <svg class="w-10 h-7 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 58 53"><path fill-rule="evenodd" clip-rule="evenodd" d="M2 1h54c.6 0 1 .4 1 1v36.5H1V2c0-.6.4-1 1-1ZM1 39.5V43c0 .6.4 1 1 1h54c.6 0 1-.4 1-1v-3.5H1Zm57 0V43a2 2 0 0 1-2 2H36.5l1 4.9v.1H40c.6 0 1 .4 1 1v1c0 .6-.4 1-1 1H19a1 1 0 0 1-1-1v-1c0-.6.4-1 1-1h2.5v-.1l1-4.9H2a2 2 0 0 1-2-2V2C0 .9.9 0 2 0h54a2 2 0 0 1 2 2v37.5ZM36.5 50l-1-4.9V45h-12v.1l-1 4.9h14ZM54 42a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm-35 9h21v1H19v-1Z" /></svg>
+        </button>
+    </div>
+
+    <div :class="deviceClass">
+        <div>
+            <slot></slot>
+        </div>
+    </div>
+</div>
+`
+        })
+
         Vue.component('button-action', {
             props: {
                 action: String
@@ -145,7 +183,11 @@
                         .then(data => console.log(data));
                 }
             },
-            template: '<button @click="callAction" type="button" class="border rounded-full text-blue-600 md:py-1 md:px-3 px-2 lg:px-3 border-blue-400 hover:bg-blue-500 hover:text-white transition-all duration-300"><slot></slot></button>'
+            template: `
+<button @click="callAction" type="button" class="border rounded-full text-blue-600 md:py-1 md:px-3 px-2 lg:px-3 border-blue-400 hover:bg-blue-500 hover:text-white transition-all duration-300">
+    <slot></slot>
+</button>
+`
         })
 
         new Vue({
