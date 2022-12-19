@@ -168,6 +168,7 @@ return [
         /*
          * Package Service Providers...
          */
+        Blackfire\Bridge\Laravel\ObservableCommandProvider::class,
 
         /*
          * Application Service Providers...

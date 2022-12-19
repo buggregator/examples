@@ -22,6 +22,7 @@ class CallAction extends Controller
         SmtpActions,
         VarDumpActions,
         InspectorActions,
+        InspectorActions,
         WithFaker;
 
     private array $setUpMap = [
@@ -29,7 +30,7 @@ class CallAction extends Controller
         'monolog:' => 'setUpSocketMonolog',
         'sentry:' => 'setupSentryLogger',
         'var_dump:' => 'setUpVarDumper',
-        'inspector:' => 'setUpInspector'
+        'inspector:' => 'setUpInspector',
     ];
 
     private array $replaceMap = [
