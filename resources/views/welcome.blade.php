@@ -103,7 +103,7 @@
                     @endif
 
                     <div class="p-5 md:p-8 lg:p-10 bg-gray-50 border border-blue-200 rounded-xl">
-                        <p class="text-sm text-gray-400 font-bold mb-4">Click a button to send an event to {{ config('app.name') }} server.</p>
+                        <p class="text-sm text-gray-400 font-bold mb-4">Click a button to send an event to Buggregator server.</p>
                         @foreach($data['events'] as $type => $buttons)
                             @if($type !== 'common')
                                 <h4 class="text-xl lg:text-3xl leading-none font-extrabold text-blue-600 tracking-tight mt-6 mb-4">
@@ -173,7 +173,8 @@
             },
             methods: {
                 callAction() {
-                    fetch('/', {
+                    const url = this.action === 'profiler:report' ? '/_profiler' : '/';
+                    fetch(url, {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json'

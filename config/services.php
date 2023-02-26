@@ -30,4 +30,8 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'profiler' => [
+        'endpoint' => env('PROFILER_ENDPOINT', 'http://127.0.0.1/api/profiler/store'),
+    ],
+
 ];

@@ -7,6 +7,7 @@ use App\Modules\Monolog\Common as MonologActions;
 use App\Modules\Ray\RayCommon as RayCommonActions;
 use App\Modules\Ray\RayLaravel as RayLaravelActions;
 use App\Modules\Sentry\Common as SentryActions;
+use App\Modules\Profiler\Common as ProfilerActions;
 use App\Modules\Smtp\Common as SmtpActions;
 use App\Modules\VarDump\Common as VarDumpActions;
 use App\Modules\Inspector\Common as InspectorActions;
@@ -23,12 +24,14 @@ class CallAction extends Controller
         VarDumpActions,
         InspectorActions,
         InspectorActions,
+        ProfilerActions,
         WithFaker;
 
     private array $setUpMap = [
-        'ray_logs:' => 'setUpRayLogger',
-        'monolog:' => 'setUpSocketMonolog',
+        // 'ray_logs:' => 'setUpRayLogger',
+        'profiler:' => 'setupProfiler',
         'sentry:' => 'setupSentryLogger',
+        'monolog:' => 'setUpSocketMonolog',
         'var_dump:' => 'setUpVarDumper',
         'inspector:' => 'setUpInspector',
     ];
