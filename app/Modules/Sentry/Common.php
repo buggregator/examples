@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace App\Modules\Sentry;
 
+use Sentry\SentrySdk;
+
 trait Common
 {
     public function setupSentryLogger()
@@ -19,5 +21,14 @@ trait Common
         } catch (\Throwable $e) {
             report($e);
         }
+    }
+
+    /** @test */
+    function sentryEvent()
+    {
+        $currentHub = SentrySdk::getCurrentHub();
+        $client = $currentHub->getClient();
+
+        $eventId = $currentHub->captureMessage('This is a test message from the Sentry bundle');
     }
 }
