@@ -15,6 +15,9 @@ $app = new Illuminate\Foundation\Application(
     $_ENV['APP_BASE_PATH'] ?? dirname(__DIR__)
 );
 
+if (!defined('STDIN')) {
+    define('STDIN', fopen("php://stdin", "r"));
+}
 /*
 |--------------------------------------------------------------------------
 | Bind Important Interfaces

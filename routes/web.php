@@ -107,8 +107,8 @@ Route::post('/', \App\Http\Controllers\CallAction::class);
 
 Route::middleware(\Inspector\Laravel\Middleware\WebRequestMonitoring::class)
     ->get('/inspector', function () {
-        \Illuminate\Support\Facades\Artisan::call('migrate:fresh');
-        \Illuminate\Support\Facades\Artisan::call('db:seed');
+        \Illuminate\Support\Facades\Artisan::call('migrate:fresh', ['--force' => true]);
+        \Illuminate\Support\Facades\Artisan::call('db:seed', ['--force' => true]);
 
         $users = \App\Models\User::all();
 
