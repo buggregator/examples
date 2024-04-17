@@ -17,6 +17,8 @@ trait Common
     function sentryReport()
     {
         try {
+            \Illuminate\Support\Facades\Artisan::call('migrate:fresh', ['--force' => true]);
+            \Illuminate\Support\Facades\Artisan::call('db:seed', ['--force' => true]);
             throw new \Exception('Something went wrong');
         } catch (\Throwable $e) {
             report($e);
@@ -26,9 +28,11 @@ trait Common
     /** @test */
     function sentryEvent()
     {
+        \Illuminate\Support\Facades\Artisan::call('migrate:fresh', ['--force' => true]);
+        \Illuminate\Support\Facades\Artisan::call('db:seed', ['--force' => true]);
         $currentHub = SentrySdk::getCurrentHub();
         $client = $currentHub->getClient();
 
-        $eventId = $currentHub->captureMessage('This is a test message from the Sentry bundle');
+        $currentHub->captureMessage('This is a test message from the Sentry bundle');
     }
 }

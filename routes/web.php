@@ -9,38 +9,89 @@ Route::get('/', function () {
             'description' => 'The Ray debug tool supports PHP, Ruby, JavaScript, TypeScript, NodeJS, Go and Bash applications. After installing one of the libraries, you can use the ray function to quickly dump stuff. Any variable(s) that you pass will be sent to the Buggregator.',
             'events' => [
                 'common' => [
-                    'NewScreen', 'NewScreenWithName', 'ClearAll', 'ClearScreen', 'Int', 'String',
-                    'Array', 'Bool', 'Object', 'Colors', 'Sizes', 'Labels', 'Caller', 'Trace', 'Pause',
-                    'Counter', 'CounterWithName', 'Limit', 'ClassName', 'Measure', 'Json', 'Xml', 'Carbon',
-                    'File', 'Table', 'Image', 'Html', 'Text', 'Hide', 'Notify', 'Phpinfo', 'Exception', 'Markdown'
+                    'NewScreen',
+                    'NewScreenWithName',
+                    'ClearAll',
+                    'ClearScreen',
+                    'Int',
+                    'String',
+                    'Array',
+                    'Bool',
+                    'Object',
+                    'Colors',
+                    'Sizes',
+                    'Labels',
+                    'Caller',
+                    'Trace',
+                    'Pause',
+                    'Counter',
+                    'CounterWithName',
+                    'Limit',
+                    'ClassName',
+                    'Measure',
+                    'Json',
+                    'Xml',
+                    'Carbon',
+                    'File',
+                    'Table',
+                    'Image',
+                    'Html',
+                    'Text',
+                    'Hide',
+                    'Notify',
+                    'Phpinfo',
+                    'Exception',
+                    'Markdown',
                 ],
                 'laravel' => [
-                    'ShowQueries', 'CountQueries', 'ManuallyShowedQuery', 'ShowEvents', 'ShowJobs', 'ShowCache',
-                    'ShowHttpClientRequests', 'HandlingModels', 'Mailable', 'ShowViews', 'Collections', 'StrString',
+                    'ShowQueries',
+                    'CountQueries',
+                    'ManuallyShowedQuery',
+                    'ShowEvents',
+                    'ShowJobs',
+                    'ShowCache',
+                    'ShowHttpClientRequests',
+                    'HandlingModels',
+                    'Mailable',
+                    'ShowViews',
+                    'Collections',
+                    'StrString',
                     'Env',
                 ],
                 'logs' => [
-                    'Debug', 'Info', 'Warning', 'Error', 'Critical', 'Notice', 'Alert', 'Emergency', 'Exception'
-                ]
-            ]
+                    'Debug',
+                    'Info',
+                    'Warning',
+                    'Error',
+                    'Critical',
+                    'Notice',
+                    'Alert',
+                    'Emergency',
+                    'Exception',
+                ],
+            ],
+            'docs' => 'https://docs.buggregator.dev/config/ray.html',
         ],
         'profiler' => [
-            'title' => 'Buggregator can be used to profile application with xhprof.',
-            'description' => 'Efficiently fine-tune your PHP application\'s performance by identifying performance bottlenecks.',
+            'title' => 'PHP Application profiler',
+            'description' => 'Pinpoint performance bottlenecks in your PHP applications. This lightweight profiler provides essential insights to optimize your code for better efficiency and speed.',
             'events' => [
                 'common' => [
                     'Report',
                 ],
             ],
+            'docs' => 'https://docs.buggregator.dev/config/xhprof.html',
         ],
         'sentry' => [
-            'title' => 'Buggregator can bs used to receive Sentry reports from your application.',
-            'description' => 'Directly send data to the server and debug your app with this lightweight alternative.',
+            'title' => 'Exception Handling with Sentry Integration',
+            'description' => 'Use Buggregator as a local alternative to Sentry for catching exceptions. It helps you identify and resolve errors efficiently before they affect your production environment.',
             'events' => [
                 'common' => [
-                    'Report', 'Event'
+                    'Report',
+                    'Event',
                 ],
             ],
+            'docs' => 'https://docs.buggregator.dev/config/sentry.html',
         ],
         'monolog' => [
             'title' => 'Buggregator can receive logs from monolog/monolog package.',
@@ -58,16 +109,18 @@ Route::get('/', function () {
                     'Exception',
                 ],
             ],
+            'docs' => 'https://docs.buggregator.dev/config/monolog.html',
         ],
         'smtp' => [
-            'title' => 'Buggregator also is an email testing tool that makes it super easy to install and configure a local email server (Like MailHog).',
-            'description' => 'Test email functionality with ease during the development phase using Buggregator\'s SMTP server.',
+            'title' => 'SMTP Email Testing',
+            'description' => 'Test email functionalities within your applications without relying on external email servers. Simulate receiving emails to verify that your application handles email operations correctly.',
             'events' => [
                 'common' => [
                     'OrderShipped',
                     'WelcomeMail',
                 ],
             ],
+            'docs' => 'https://docs.buggregator.dev/config/smtp.html',
         ],
         'var_dump' => [
             'title' => 'Buggregator can receive dumps from symfony/var-dumper package.',
@@ -82,9 +135,10 @@ Route::get('/', function () {
                     'Exception',
                 ],
             ],
+            'docs' => 'https://docs.buggregator.dev/config/var-dumper.html',
         ],
         'inspector' => [
-            'title' => 'Buggregator can be used to receive Inspector reports from your application.',
+            'title' => 'It can be used to receive Inspector reports from your application.',
             'description' => 'A handy feature for local development, ensuring swift issue identification and resolution.',
             'events' => [
                 'common' => [
@@ -92,6 +146,7 @@ Route::get('/', function () {
                     'Command',
                 ],
             ],
+            'docs' => 'https://docs.buggregator.dev/config/inspector.html',
         ],
     ];
 
