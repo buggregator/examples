@@ -13,12 +13,11 @@
     <link rel="manifest" href="/favicon/site.webmanifest">
 
     <title>Buggregator - The Ultimate PHP Debugging Tool</title>
-
 </head>
 <body>
 <div id="app" class="bg-gray-100 relative">
-    <div class="bg-gray-900 text-gray-300 h-48">
-        <div class="max-w-screen-lg xl:max-w-screen-xl mx-auto px-5 md:px-8 lg:px-16 py-4">
+    <div class="bg-gray-900 text-gray-300 h-52">
+        <div class="max-w-screen-lg xl:max-w-screen-xl mx-auto px-5 md:px-8 lg:px-16 py-8">
             <header class="flex justify-between items-center">
                 <a href="/">
                     <svg class="h-10 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 154 29" fill="currentColor" ><path d="M50.54 3.31h3.24v14.66l-.23 2.86h-3V3.3Zm9.77 10.94v.8c0 1.01-.08 1.89-.25 2.63-.15.75-.4 1.37-.73 1.87-.32.5-.74.88-1.25 1.13-.51.25-1.12.38-1.81.38-.63 0-1.17-.15-1.62-.44-.45-.3-.83-.7-1.13-1.22a7.89 7.89 0 0 1-.75-1.83c-.18-.71-.32-1.48-.4-2.32v-1.2c.07-.82.2-1.58.39-2.29.2-.7.44-1.32.74-1.83.3-.53.68-.93 1.13-1.22.46-.3 1-.45 1.61-.45.72 0 1.33.13 1.84.4.5.24.93.62 1.25 1.12.33.5.58 1.13.73 1.88.17.75.25 1.6.25 2.59Zm-3.24.8v-.8c0-.57-.03-1.06-.07-1.47a3.45 3.45 0 0 0-.26-1.03c-.12-.27-.3-.48-.53-.61a1.7 1.7 0 0 0-.9-.2c-.33 0-.6.06-.83.19-.23.12-.42.3-.58.54-.16.24-.27.52-.35.85-.07.32-.1.67-.12 1.06v2.15c.01.53.08.99.2 1.4.12.4.32.7.6.93.27.22.64.33 1.1.33.37 0 .67-.06.89-.18.22-.13.4-.32.52-.59.13-.26.22-.6.26-1.02.04-.43.07-.94.07-1.54ZM67.19 17.86V8.5h3.26v12.34h-3.07l-.2-2.97Zm.37-2.54.9-.02c0 .83-.08 1.6-.24 2.3-.16.7-.4 1.3-.73 1.83a3.6 3.6 0 0 1-1.22 1.2 3.9 3.9 0 0 1-3.15.17c-.42-.17-.79-.44-1.1-.8a4.09 4.09 0 0 1-.73-1.43 7.62 7.62 0 0 1-.26-2.1V8.48h3.27v8c0 .34.03.63.09.87s.15.43.25.58c.11.16.24.27.39.33.14.07.31.1.5.1.5 0 .9-.13 1.2-.4.3-.26.52-.62.64-1.08.13-.46.19-.98.19-1.57ZM78.23 8.5h2.95v12.33c0 1.12-.22 2.04-.66 2.76a3.83 3.83 0 0 1-1.82 1.58 6.67 6.67 0 0 1-5.47-.13 3.75 3.75 0 0 1-1.13-.78l1.1-2.21c.3.3.7.55 1.2.75.48.21.96.32 1.43.32.46 0 .84-.07 1.14-.22.3-.13.54-.37.7-.7.16-.34.24-.79.24-1.35v-9.5l.32-2.86Zm-7 6.6v-.83c0-1 .09-1.88.28-2.63.2-.75.47-1.38.84-1.88.36-.5.8-.88 1.33-1.12a4.15 4.15 0 0 1 1.8-.38c.68 0 1.26.15 1.72.45.46.29.84.7 1.13 1.22.3.52.52 1.14.67 1.86.16.71.29 1.5.37 2.35v1.18c-.08.8-.22 1.56-.42 2.26-.18.7-.43 1.3-.74 1.82-.3.52-.69.93-1.14 1.22-.45.3-.99.44-1.62.44a3.71 3.71 0 0 1-3.1-1.53 5.66 5.66 0 0 1-.84-1.87c-.2-.75-.29-1.6-.29-2.57Zm3.25-.83v.82c0 .58.04 1.08.1 1.5.09.4.2.75.36 1.01.15.26.35.45.59.58.25.12.54.19.87.19.47 0 .85-.11 1.13-.32.28-.22.5-.52.62-.9.14-.4.22-.84.23-1.34v-2.15c0-.42-.05-.8-.15-1.13a2.8 2.8 0 0 0-.36-.86 1.6 1.6 0 0 0-.6-.54c-.24-.13-.52-.2-.85-.2a1.58 1.58 0 0 0-1.46.8 3.4 3.4 0 0 0-.36 1.04 8.4 8.4 0 0 0-.12 1.5ZM89.03 8.5h2.94v12.33c0 1.12-.22 2.04-.66 2.76a3.83 3.83 0 0 1-1.82 1.58 6.67 6.67 0 0 1-5.47-.13 3.75 3.75 0 0 1-1.12-.78l1.1-2.21c.3.3.7.55 1.18.75.5.21.97.32 1.44.32.46 0 .84-.07 1.14-.22.31-.13.54-.37.7-.7.16-.34.24-.79.24-1.35v-9.5l.33-2.86ZM82 15.1v-.83c0-1 .1-1.88.3-2.63.19-.75.47-1.38.83-1.88s.8-.88 1.33-1.12a4.15 4.15 0 0 1 1.8-.38c.68 0 1.26.15 1.72.45.47.29.84.7 1.13 1.22.3.52.52 1.14.67 1.86.16.71.29 1.5.37 2.35v1.18c-.08.8-.22 1.56-.41 2.26-.19.7-.44 1.3-.75 1.82-.3.52-.69.93-1.14 1.22-.44.3-.99.44-1.62.44a3.71 3.71 0 0 1-3.1-1.53 5.66 5.66 0 0 1-.84-1.87c-.19-.75-.29-1.6-.29-2.57Zm3.27-.83v.82c0 .58.03 1.08.1 1.5.08.4.2.75.35 1.01.15.26.35.45.6.58.24.12.53.19.86.19.47 0 .85-.11 1.13-.32.28-.22.5-.52.62-.9.14-.4.22-.84.24-1.34v-2.15c-.01-.42-.06-.8-.15-1.13-.09-.34-.2-.62-.36-.86a1.6 1.6 0 0 0-.6-.54c-.25-.13-.53-.2-.86-.2a1.58 1.58 0 0 0-1.46.8 3.4 3.4 0 0 0-.36 1.04 8.4 8.4 0 0 0-.11 1.5ZM96.46 11.24v9.59h-3.25V8.49h3.07l.18 2.75Zm2.96-2.84-.04 3.18a2.27 2.27 0 0 0-2 .08c-.26.1-.47.27-.64.5-.16.2-.29.47-.37.79-.09.32-.14.68-.15 1.08l-.62-.23c0-.8.07-1.54.19-2.2.13-.68.32-1.27.58-1.76.26-.5.56-.9.92-1.17a2 2 0 0 1 1.23-.4c.15 0 .31 0 .49.04.17.02.31.05.41.09ZM104.72 21.06c-.86 0-1.62-.13-2.28-.4a4.53 4.53 0 0 1-2.72-2.9c-.24-.7-.36-1.5-.36-2.4v-1c0-1.01.12-1.89.35-2.64.23-.76.56-1.4.98-1.92.43-.51.95-.9 1.57-1.15a5.53 5.53 0 0 1 2.13-.39c.79 0 1.48.13 2.08.4.6.24 1.1.62 1.5 1.13.39.5.69 1.13.89 1.87.2.75.3 1.61.3 2.6v1.46h-8.42v-2.25h5.23v-.28c0-.5-.06-.92-.17-1.26-.1-.34-.27-.6-.5-.76a1.56 1.56 0 0 0-.94-.25c-.32 0-.6.06-.82.2-.23.12-.4.32-.53.6-.14.27-.23.63-.3 1.07-.06.43-.09.95-.09 1.56v1.02c0 .57.05 1.05.15 1.43.1.38.25.7.45.94.2.23.44.4.73.51a3.85 3.85 0 0 0 2.54-.15c.46-.2.86-.48 1.18-.83l1.3 1.94a5.11 5.11 0 0 1-2.34 1.57c-.55.19-1.19.28-1.9.28ZM116.46 8.5h2.95v12.33c0 1.12-.23 2.04-.67 2.76a3.83 3.83 0 0 1-1.82 1.58 6.68 6.68 0 0 1-5.47-.13 3.74 3.74 0 0 1-1.12-.78l1.1-2.21c.3.3.7.55 1.18.75.5.21.97.32 1.44.32.46 0 .84-.07 1.14-.22.31-.13.54-.37.7-.7.16-.34.24-.79.24-1.35v-9.5l.33-2.86Zm-7.02 6.6v-.83c0-1 .1-1.88.3-2.63.19-.75.47-1.38.83-1.88s.8-.88 1.34-1.12a4.15 4.15 0 0 1 1.78-.38c.7 0 1.27.15 1.73.45.47.29.84.7 1.13 1.22.3.52.52 1.14.67 1.86.17.71.29 1.5.37 2.35v1.18c-.08.8-.22 1.56-.41 2.26-.19.7-.44 1.3-.75 1.82-.3.52-.69.93-1.14 1.22-.44.3-.98.44-1.62.44a3.72 3.72 0 0 1-3.1-1.53 5.69 5.69 0 0 1-.84-1.87c-.19-.75-.29-1.6-.29-2.57Zm3.27-.83v.82c0 .58.03 1.08.1 1.5.08.4.2.75.35 1.01.15.26.35.45.6.58.24.12.53.19.86.19.47 0 .85-.11 1.13-.32.28-.22.5-.52.63-.9.13-.4.21-.84.23-1.34v-2.15c-.01-.42-.06-.8-.15-1.13a2.8 2.8 0 0 0-.36-.86 1.59 1.59 0 0 0-.6-.54c-.25-.13-.53-.2-.86-.2a1.58 1.58 0 0 0-1.46.8c-.15.27-.27.61-.36 1.04-.07.42-.11.92-.11 1.5ZM126.18 17.99v-5.7c0-.37-.05-.67-.14-.9a.89.89 0 0 0-.4-.47c-.16-.1-.37-.16-.62-.16-.28 0-.51.06-.7.17-.18.12-.32.28-.41.5-.09.2-.13.46-.13.76h-3.27a3.67 3.67 0 0 1 1.24-2.76c.4-.37.9-.65 1.46-.86.56-.2 1.2-.3 1.9-.3.84 0 1.58.13 2.23.41a3.3 3.3 0 0 1 1.54 1.32c.38.6.57 1.38.57 2.33v5.5c0 .7.04 1.25.1 1.69.09.43.2.8.34 1.11v.2h-3.27a5.26 5.26 0 0 1-.34-1.28c-.06-.52-.1-1.04-.1-1.56Zm.4-4.7v1.92h-1.19c-.3 0-.58.05-.81.15a1.74 1.74 0 0 0-.92 1.04 2.63 2.63 0 0 0 .02 1.5c.09.2.22.36.39.47.17.1.37.16.6.16.36 0 .67-.08.93-.22.26-.15.46-.32.58-.53.13-.2.17-.4.13-.57l.74 1.25c-.1.28-.22.57-.38.87-.16.3-.35.59-.6.85-.23.26-.53.47-.89.64a3.79 3.79 0 0 1-3.09-.22 3.42 3.42 0 0 1-1.8-3.23c0-.62.1-1.18.3-1.68.22-.51.52-.94.94-1.3.4-.35.92-.62 1.55-.81a7.63 7.63 0 0 1 2.2-.29h1.3ZM136.15 8.5v2.4h-6.41V8.5h6.4Zm-4.94-3.05h3.24v11.62c0 .34.04.6.1.78a.7.7 0 0 0 .32.39c.15.07.34.1.58.1.16 0 .31 0 .45-.02s.25-.05.32-.07v2.5a4.58 4.58 0 0 1-1.81.3 3.7 3.7 0 0 1-1.7-.36 2.5 2.5 0 0 1-1.1-1.16 4.87 4.87 0 0 1-.4-2.12V5.45ZM136.05 15.08v-.83c0-.97.12-1.82.35-2.57.24-.74.58-1.36 1.02-1.87.44-.5.97-.89 1.6-1.15.62-.26 1.32-.4 2.1-.4.77 0 1.47.14 2.1.4.62.26 1.15.64 1.6 1.15.44.5.79 1.13 1.03 1.87.24.75.36 1.6.36 2.57v.83c0 .96-.12 1.81-.36 2.56a5.23 5.23 0 0 1-1.03 1.88c-.45.5-.98.89-1.6 1.15-.61.26-1.31.39-2.09.39-.77 0-1.47-.13-2.1-.4a4.34 4.34 0 0 1-1.6-1.14c-.45-.51-.8-1.14-1.03-1.88a8.59 8.59 0 0 1-.35-2.56Zm3.25-.83v.83c0 .57.04 1.07.12 1.48.08.42.2.77.36 1.04.16.28.35.48.58.6.22.14.48.2.77.2a1.45 1.45 0 0 0 1.36-.8c.16-.27.27-.62.34-1.04.08-.41.12-.9.12-1.48v-.83a7.4 7.4 0 0 0-.13-1.46 3.4 3.4 0 0 0-.36-1.04 1.61 1.61 0 0 0-.58-.61 1.38 1.38 0 0 0-.77-.22c-.28 0-.54.07-.76.22-.22.13-.41.34-.57.61a3.4 3.4 0 0 0-.36 1.04c-.08.42-.12.9-.12 1.46ZM150.32 11.24v9.59h-3.25V8.49h3.07l.19 2.75Zm2.97-2.84-.05 3.18a2.27 2.27 0 0 0-2 .08c-.25.1-.47.27-.64.5-.16.2-.28.47-.37.79-.08.32-.13.68-.15 1.08l-.61-.23c0-.8.06-1.54.18-2.2.13-.68.33-1.27.58-1.76.26-.5.56-.9.92-1.17a2 2 0 0 1 1.23-.4c.16 0 .32 0 .49.04.18.02.31.05.42.09ZM8.46 0l.58 1.68c-1.18.37-2 1.02-2.44 1.97-.45.93-.67 2-.67 3.22v3.06c0 .98-.2 1.88-.61 2.69-.4.8-1.03 1.43-1.9 1.9-.87.47-2.01.71-3.42.71v-1.8c1.12 0 1.93-.32 2.41-.95.5-.63.75-1.48.75-2.55V6.87c0-1.03.16-2 .47-2.9.33-.9.88-1.7 1.64-2.37A7.9 7.9 0 0 1 8.47 0Zm.58 27.3L8.46 29a8.16 8.16 0 0 1-3.19-1.6 5.78 5.78 0 0 1-1.64-2.37 8.6 8.6 0 0 1-.47-2.9v-3.04c0-.72-.11-1.34-.33-1.86A2.52 2.52 0 0 0 1.8 16a3.27 3.27 0 0 0-1.8-.44v-1.8a7.1 7.1 0 0 1 3.41.7 4.36 4.36 0 0 1 1.9 1.93c.42.8.62 1.7.62 2.69v3.04c0 .8.1 1.56.28 2.25a4.06 4.06 0 0 0 2.83 2.93ZM32.39 1.68 32.97 0c1.36.37 2.42.9 3.19 1.6a5.6 5.6 0 0 1 1.63 2.37c.32.9.48 1.87.48 2.9v3.06c0 .7.11 1.33.33 1.86.22.52.55.92 1.01 1.21.47.29 1.07.43 1.82.43v1.67c-1.4 0-2.54-.22-3.41-.67a4.35 4.35 0 0 1-1.92-1.84c-.4-.8-.6-1.68-.6-2.66V6.87c0-.8-.1-1.56-.28-2.25a4.3 4.3 0 0 0-.97-1.8 3.95 3.95 0 0 0-1.86-1.14ZM32.97 29l-.58-1.7c.78-.25 1.4-.62 1.84-1.14.46-.5.78-1.1.97-1.78.2-.7.3-1.44.3-2.25v-3.04c0-1 .2-1.88.6-2.66a4.27 4.27 0 0 1 1.92-1.83 7.41 7.41 0 0 1 3.4-.68v1.65c-1.1 0-1.9.32-2.4.96-.5.63-.75 1.48-.75 2.56v3.04c0 1.03-.16 2-.48 2.9a5.6 5.6 0 0 1-1.63 2.37 8.02 8.02 0 0 1-3.2 1.6Z" fill="#fff"/><path fill-rule="evenodd" clip-rule="evenodd" d="M13.86 8.6a6.11 6.11 0 0 1 12.23 0v.36l.05.02 2.02-2.28a.74.74 0 0 1 1.1.99l-1.93 2.18c.55.63.87 1.46.85 2.36l-.06 1.81c0 .35-.03.7-.06 1.05h2.69a.74.74 0 1 1 0 1.48h-2.92a14.8 14.8 0 0 1-1.26 3.67l-.6 1.2-.15.27 2.68 2.72a.74.74 0 1 1-1.06 1.03l-2.49-2.53a6.83 6.83 0 0 1-10.5-.39l-2.68 2.64a.74.74 0 0 1-1.04-1.05l2.94-2.89a5.38 5.38 0 0 1-.03-.07l-.8-1.76a14.8 14.8 0 0 1-.93-2.84H9.03a.74.74 0 1 1 0-1.48h2.63c-.04-.28-.06-.56-.08-.85l-.11-1.9c-.06-.9.24-1.75.77-2.4L10.2 7.76a.74.74 0 1 1 1.08-1.01l2.13 2.27c.14-.07.3-.13.45-.18V8.6Zm10.02 0v.08h-7.81V8.6a3.9 3.9 0 0 1 7.81 0Zm.84 2.28h-9.8c-.72 0-1.3.6-1.25 1.32l.11 1.91c.1 1.52.46 3 1.08 4.4l.8 1.76a4.62 4.62 0 0 0 8.33.18l.6-1.2a12.6 12.6 0 0 0 1.33-5.27l.05-1.81c.02-.7-.55-1.29-1.25-1.29Z"/><path fill="currentColor" d="M22.45 12.65c.32-.3.83-.3 1.15 0a.7.7 0 0 1 0 1.05l-2.57 2.37 2.76 2.54a.7.7 0 0 1 0 1.06c-.31.29-.83.29-1.14 0l-2.76-2.55-2.76 2.55c-.32.29-.83.29-1.15 0a.7.7 0 0 1 0-1.06l2.76-2.54-2.57-2.37a.7.7 0 0 1 0-1.05c.32-.3.83-.3 1.15 0L19.89 15l2.56-2.36Z" /></svg>
@@ -44,7 +43,7 @@
     </div>
 
     <div>
-        <div class="max-w-screen-lg xl:max-w-screen-xl mx-auto flex flex-col items-center bg-white -mt-28 rounded-xl shadow-2xl p-10">
+        <div class="max-w-screen-lg xl:max-w-screen-xl mx-auto flex flex-col items-center bg-white -mt-24 rounded-xl shadow-2xl py-16">
             <h1 class="text-3xl sm:text-4xl lg:text-5xl leading-none font-extrabold tracking-tight mb-4 text-center">
                 <span class="text-black">Buggregator</span> <br> <small class="text-blue-800">The Ultimate Debugging
                     Server for PHP</small>
@@ -56,7 +55,7 @@
             </p>
 
             <div class="flex items-center justify-center gap-x-6 lg:justify-start mb-8">
-                <a href="#demo" class="rounded-md bg-blue-800 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">Try demo</a>
+                <a href="#demo" class="rounded-md bg-blue-800 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-blue-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">Try demo</a>
                 <a href="https://docs.buggregator.dev" class="text-sm font-semibold leading-6 text-blue-800">Documentation</a>
             </div>
 
@@ -80,21 +79,21 @@
         <div class="w-1/2 md:w-1/3 xl:w-1/4 flex flex-col gap-4 md:gap-10 lg:gap-16">
             @foreach($buttonGroups as $group => $data)
             <div class="border p-10 rounded-xl bg-white hover:shadow-xl transition" id="{{ $group }}">
-                <h3 class="text-2xl lg:text-3xl leading-none font-extrabold text-blue-800 tracking-tight mb-4">
+                <h3 class="text-xl leading-none font-bold text-blue-800 tracking-tight mb-4">
                     {{ $data['title'] ?? \Illuminate\Support\Str::studly($group) }}
                 </h3>
 
                 @if(isset($data['description']))
-                <p class="text-gray-500 font-medium mb-6">
+                <p class="text-gray-500 text-sm font-medium mb-6">
                     {{ $data['description'] }}
                 </p>
                 @endif
 
                 @if(isset($data['docs']))
-                <div class="mb-8">
+                <div class="mb-8 flex gap-4 items-center">
                     <a href="{{ $data['docs'] }}" target="_blank"
-                       class="border bg-blue-100 hover:bg-blue-200 font-bold text-blue-800 px-3 py-1 rounded-full">
-                        Read more
+                       class="border bg-blue-100 hover:bg-blue-200 font-bold text-xs text-blue-800 px-3 py-1 rounded-full">
+                        Docs
                     </a>
                 </div>
                 @endif
@@ -102,7 +101,7 @@
                 <div>
                     @foreach($data['events'] as $type => $buttons)
                     @if($type !== 'common')
-                    <h4 class="text-xl lg:text-3xl leading-none font-extrabold text-blue-600 tracking-tight mt-6 mb-4">
+                    <h4 class="text-xl leading-none font-extrabold text-blue-600 tracking-tight mt-6 mb-4">
                         {{ \Illuminate\Support\Str::studly($type) }}
                     </h4>
                     @endif
@@ -141,13 +140,54 @@
     </div>
 
 
+    <div class="bg-gray-900 py-20 mt-24">
+        <div class="max-w-screen-lg xl:max-w-screen-xl mx-auto">
+            <h3 class="text-3xl lg:text-5xl leading-none font-extrabold text-yellow-200 tracking-tight mb-8">
+                How to run?
+            </h3>
+
+            <p class="text-gray-200 font-medium mb-6 text-xl">
+                Getting Buggregator up and running is super simple! Just make sure Docker is installed on your server. Then, run this command in your terminal:
+            </p>
+
+            <div class="mb-10 flex">
+                <code class="select-all cursor-pointer w-auto bg-gray-50 text-gray-800 font-semibold hover:text-gray-700 font-mono px-3 py-2 border border-gray-200 hover:border-blue-600 rounded-full transition-colors duration-200">
+                    docker run -p 8000:8000 -p 1025:1025 -p 9912:9912 -p 9913:9913 ghcr.io/buggregator/server:latest
+                </code>
+            </div>
+
+            <a href="https://docs.buggregator.dev/getting-started.html" target="_blank"
+               class="border bg-gray-100 hover:bg-gary-200 font-bold text-gary-800 px-5 py-2 rounded-full">
+                Read more
+            </a>
+        </div>
+    </div>
+
+    <hr>
+
     <div class="max-w-screen-lg xl:max-w-screen-xl mx-auto py-10 my-12">
         <div>
             <h3 class="text-3xl lg:text-5xl leading-none font-extrabold text-blue-800 tracking-tight mb-8">
                 Features
             </h3>
 
-            <div class="flex gap-4">
+
+            <div class="border p-8 rounded-lg flex flex-col gap-4 hover:shadow-xl transition mb-6 bg-[url('/images/bg.jpg')]">
+                <div>
+                    <a href="https://docs.buggregator.dev/config/sso.html" target="_blank"
+                       class="text-2xl font-bold text-white">
+                        Seamless Integration
+                    </a>
+                    <p class="text-gray-100 mb-6 text-lg">
+                        Easily integrate Buggregator with the libraries you already use, like Ray and Symfony/VarDumper, without any additional installations. Just configure your server address, and you're ready to go. Our aim is to offer a server that aggregates data from your preferred libraries conveniently in one place.
+                    </p>
+                </div>
+                <div>
+                    <img src="/images/clients.png" />
+                </div>
+            </div>
+
+            <div class="flex gap-6">
                 <div class="border p-8 rounded-lg w-1/2 flex flex-col gap-4 bg-white hover:shadow-xl transition">
                     <svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"
                          class="w-8 text-purple-400">
@@ -160,12 +200,11 @@
                            class="text-lg font-bold text-gray-600">
                             Single Sign On
                         </a>
-                        <p class="text-gray-500 mb-4">Securely manage user access and authentication through Single
-                            Sign-On (SSO) with providers like <a href="https://auth0.com/"
-                                                                 class="text-blue-700 underline">Auth0</a>.</p>
-
+                        <p class="text-gray-500 mb-6">Securely manage user access and authentication through Single
+                            Sign-On (SSO) with providers like <a href="https://auth0.com/" class="text-blue-700 underline">Auth0</a>.
+                        </p>
                         <a href="https://docs.buggregator.dev/config/sso.html" target="_blank"
-                           class="border bg-purple-100 hover:bg-purple-200 font-bold text-purple-800 px-3 py-1 rounded-full">
+                           class="border bg-purple-100 hover:bg-purple-200 font-bold text-purple-800 px-5 py-2 rounded-full">
                             Read more
                         </a>
                     </div>
@@ -181,19 +220,19 @@
                            class="text-lg font-bold text-gray-600">
                             External database support
                         </a>
-                        <p class="text-gray-500 mb-4">Configure Buggregator to use external databases like MongoDB or
+                        <p class="text-gray-500 mb-6">Configure Buggregator to use external databases like MongoDB or
                             PostgreSQL for event storage. This flexibility allows you to scale storage according to your
                             project needs.</p>
 
                         <a href="https://docs.buggregator.dev/config/external-db.html" target="_blank"
-                           class="border bg-green-100 hover:bg-green-200 font-bold text-green-800 px-3 py-1 rounded-full">
+                           class="border bg-green-100 hover:bg-green-200 font-bold text-green-800 px-5 py-2 rounded-full">
                             Read more
                         </a>
                     </div>
                 </div>
             </div>
 
-            <div class="border p-8 rounded-lg bg-blue-50 w-full flex flex-col gap-4 mt-4 hover:shadow-xl transition">
+            <div class="border p-8 rounded-lg bg-blue-50 w-full flex flex-col gap-4 mt-6 hover:shadow-xl transition">
                 <svg class="w-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 722.8 702">
                     <path
                         d="M359 10a46.7 46.3 0 0 0-18 4.6L96.8 131.3a46.7 46.3 0 0 0-25.2 31.5L11.2 425a46.7 46.3 0 0 0 6.3 35.6 46.7 46.3 0 0 0 2.7 3.6l169.1 210.3a46.7 46.3 0 0 0 36.5 17.5l271.2-.1a46.7 46.3 0 0 0 36.6-17.4l169-210.3a46.7 46.3 0 0 0 9-39.2l-60.3-262.3a46.7 46.3 0 0 0-25.3-31.4L381.6 14.6A46.7 46.3 0 0 0 359 10z"
@@ -208,7 +247,7 @@
                     <span class="text-lg font-bold text-gray-600">
                         Kubernetes ready
                     </span>
-                    <p class="text-gray-500">Deploy Buggregator in your Kubernetes cluster to enhance debugging and
+                    <p class="text-blue-800">Deploy Buggregator in your Kubernetes cluster to enhance debugging and
                         operational efficiency. Real-time data collection and error tracking from your pods help
                         maintain application reliability.</p>
                 </div>
@@ -240,13 +279,13 @@
             </p>
 
             <div class="mb-6 flex">
-                <span class="w-auto bg-gray-50 text-gray-800 font-semibold hover:text-gray-700 font-mono px-3 py-2 border border-gray-200 hover:border-blue-600 rounded-lg transition-colors duration-200">
+                <code class="select-all cursor-pointer w-auto bg-gray-50 text-gray-800 font-semibold hover:text-gray-700 font-mono px-3 py-2 border border-gray-200 hover:border-blue-600 rounded-full transition-colors duration-200">
                     composer require --dev buggregator/trap -W
-                </span>
+                </code>
             </div>
 
             <a href="https://docs.buggregator.dev/trap/what-is-trap.html" target="_blank"
-               class="border bg-blue-100 hover:bg-blue-200 font-bold text-blue-800 px-3 py-1 rounded-full">
+               class="border bg-blue-100 hover:bg-blue-200 font-bold text-blue-800 px-5 py-2 rounded-full">
                 Read more
             </a>
         </div>
@@ -256,8 +295,8 @@
     <hr>
 
 
-    <div class="max-w-screen-lg xl:max-w-screen-xl mx-auto py-12 mt-12">
-        <div class="mb-48">
+    <div class="max-w-screen-lg xl:max-w-screen-xl mx-auto py-12 my-12">
+        <div>
             <h2 class="text-3xl lg:text-5xl leading-none font-extrabold text-gray-800 tracking-tight mb-8 text-center">
                 We are Buggregator developers
             </h2>
@@ -292,6 +331,19 @@
         </div>
     </div>
 
+
+    <hr>
+
+
+    <div class="py-12 bg-gray-900 text-center">
+        <a href="https://www.jetbrains.com/phpstorm/" class="inline-flex justify-center items-center gap-6">
+            <span class="text-lg text-gray-400 text-right">Developed with <br>love and</span>
+            <img
+                class="w-14"
+                src="https://resources.jetbrains.com/storage/products/company/brand/logos/PhpStorm_icon.png" alt="PhpStorm logo."
+            >
+        </a>
+    </div>
 </div>
 @verbatim
 <script>

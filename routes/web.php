@@ -9,10 +9,10 @@ Route::get('/', function () {
             'description' => 'The Ray debug tool supports PHP, Ruby, JavaScript, TypeScript, NodeJS, Go and Bash applications. After installing one of the libraries, you can use the ray function to quickly dump stuff. Any variable(s) that you pass will be sent to the Buggregator.',
             'events' => [
                 'common' => [
-                    'NewScreen',
-                    'NewScreenWithName',
-                    'ClearAll',
-                    'ClearScreen',
+//                    'NewScreen',
+//                    'NewScreenWithName',
+//                    'ClearAll',
+//                    'ClearScreen',
                     'Int',
                     'String',
                     'Array',
@@ -23,7 +23,7 @@ Route::get('/', function () {
                     'Labels',
                     'Caller',
                     'Trace',
-                    'Pause',
+//                    'Pause',
                     'Counter',
                     'CounterWithName',
                     'Limit',
@@ -71,6 +71,7 @@ Route::get('/', function () {
                 ],
             ],
             'docs' => 'https://docs.buggregator.dev/config/ray.html',
+            'vendor' => 'https://myray.app/docs/getting-started/introduction',
         ],
         'profiler' => [
             'title' => 'PHP Application profiler',
@@ -84,7 +85,7 @@ Route::get('/', function () {
         ],
         'sentry' => [
             'title' => 'Exception Handling with Sentry Integration',
-            'description' => 'Use Buggregator as a local alternative to Sentry for catching exceptions. It helps you identify and resolve errors efficiently before they affect your production environment.',
+            'description' => 'Use Buggregator as a local alternative to Sentry for catching exceptions.',
             'events' => [
                 'common' => [
                     'Report',
@@ -92,10 +93,11 @@ Route::get('/', function () {
                 ],
             ],
             'docs' => 'https://docs.buggregator.dev/config/sentry.html',
+            'vendor' => 'https://docs.sentry.io/platforms/php/'
         ],
         'monolog' => [
             'title' => 'Buggregator can receive logs from monolog/monolog package.',
-            'description' => 'Analyze logs from your PHP application for improved insights and performance.',
+            'description' => 'Analyze logs from your PHP application.',
             'events' => [
                 'common' => [
                     'Debug',
@@ -110,10 +112,11 @@ Route::get('/', function () {
                 ],
             ],
             'docs' => 'https://docs.buggregator.dev/config/monolog.html',
+            'vendor' => 'https://seldaek.github.io/monolog/'
         ],
         'smtp' => [
             'title' => 'SMTP Email Testing',
-            'description' => 'Test email functionalities within your applications without relying on external email servers. Simulate receiving emails to verify that your application handles email operations correctly.',
+            'description' => 'Test email functionalities within your applications without relying on external email servers.',
             'events' => [
                 'common' => [
                     'OrderShipped',
@@ -124,7 +127,7 @@ Route::get('/', function () {
         ],
         'var_dump' => [
             'title' => 'Buggregator can receive dumps from symfony/var-dumper package.',
-            'description' => 'A distinct space for debugging outputs, making data dump collection simpler. The dump() and dd() functions output its contents in the same browser window or console terminal as your own application. Sometimes mixing the real output with the debug output can be confusing. That’s why this Buggregator can be used to collect all the dumped data.',
+            'description' => 'The dump() and dd() functions display their output in the same browser window or console terminal as your application, which can sometimes lead to confusion by mixing real and debug outputs. To avoid this, the Buggregator is used to collect all dumped data separately.',
             'events' => [
                 'common' => [
                     'String',
@@ -136,6 +139,7 @@ Route::get('/', function () {
                 ],
             ],
             'docs' => 'https://docs.buggregator.dev/config/var-dumper.html',
+            'vendor' => 'https://symfony.com/doc/current/components/var_dumper.html'
         ],
         'inspector' => [
             'title' => 'It can be used to receive Inspector reports from your application.',
@@ -147,6 +151,7 @@ Route::get('/', function () {
                 ],
             ],
             'docs' => 'https://docs.buggregator.dev/config/inspector.html',
+            'vendor' => 'https://inspector.dev/'
         ],
     ];
 
