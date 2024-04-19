@@ -37,6 +37,10 @@
                                   transform="scale(64)" />
                         </svg>
                     </a>
+
+                    <a href="https://discord.gg/4NFWBqMA8z" target="_blank">
+                        <svg class="w-6 h-6 fill-current" viewBox="0 -28.5 256 256" xmlns="http://www.w3.org/2000/svg"><path d="M216.9 16.6A208.5 208.5 0 0 0 164 0c-2.2 4.1-4.9 9.6-6.7 14a194 194 0 0 0-58.6 0C97 9.6 94.2 4.1 92 0A207.8 207.8 0 0 0 39 16.6 221.5 221.5 0 0 0 1 165 211.2 211.2 0 0 0 66 198a161 161 0 0 0 13.8-22.8c-7.6-2.9-15-6.5-21.8-10.6l5.3-4.3a149.3 149.3 0 0 0 129.6 0c1.7 1.5 3.5 3 5.3 4.3a136 136 0 0 1-21.9 10.6c4 8 8.7 15.7 13.9 22.9a210.7 210.7 0 0 0 64.8-33.2c5.3-56.3-9-105.1-38-148.4ZM85.5 135.1c-12.7 0-23-11.8-23-26.2 0-14.4 10.1-26.2 23-26.2 12.8 0 23.2 11.8 23 26.2 0 14.4-10.2 26.2-23 26.2Zm85 0c-12.6 0-23-11.8-23-26.2 0-14.4 10.2-26.2 23-26.2 12.9 0 23.3 11.8 23 26.2 0 14.4-10.1 26.2-23 26.2Z"/></svg>
+                    </a>
                 </div>
             </header>
         </div>
@@ -67,7 +71,7 @@
         </div>
     </div>
 
-    <div class="mt-24 flex gap-4 mb-24">
+    <div class="mt-24 flex gap-0 md:gap-4 mb-24">
         <div class="relative flex-1">
             <div class="p-0 sticky top-0 h-screen" id="demo">
                 <preview>
@@ -76,15 +80,15 @@
             </div>
         </div>
 
-        <div class="w-1/2 md:w-1/3 xl:w-1/4 flex flex-col gap-4 md:gap-10 lg:gap-16">
+        <div class="w-40 md:w-1/3 xl:w-1/4 flex flex-col gap-4 md:gap-10 lg:gap-16">
             @foreach($buttonGroups as $group => $data)
-            <div class="border p-10 rounded-xl bg-white hover:shadow-xl transition" id="{{ $group }}">
-                <h3 class="text-xl leading-none font-bold text-blue-800 tracking-tight mb-4">
+            <div class="border p-4 md:p-6 lg:p-10 md:rounded-xl bg-white hover:shadow-xl transition" id="{{ $group }}">
+                <h3 class="md:text-xl leading-none font-bold text-blue-800 tracking-tight mb-4">
                     {{ $data['title'] ?? \Illuminate\Support\Str::studly($group) }}
                 </h3>
 
                 @if(isset($data['description']))
-                <p class="text-gray-500 text-sm font-medium mb-6">
+                <p class="hidden md:block text-gray-500 text-sm font-medium mb-6">
                     {{ $data['description'] }}
                 </p>
                 @endif
@@ -101,12 +105,12 @@
                 <div>
                     @foreach($data['events'] as $type => $buttons)
                     @if($type !== 'common')
-                    <h4 class="text-xl leading-none font-extrabold text-blue-600 tracking-tight mt-6 mb-4">
+                    <h4 class="md:text-xl leading-none font-extrabold text-blue-600 tracking-tight mt-6 mb-4">
                         {{ \Illuminate\Support\Str::studly($type) }}
                     </h4>
                     @endif
 
-                    <div class="flex flex-wrap gap-2 md:gap-3 lg:gap-4 text-sm">
+                    <div class="overflow-hidden flex flex-wrap gap-2 md:gap-3 lg:gap-4 text-sm">
                         @foreach($buttons as $button)
                         <button-action
                             action="{{ $group.($type === 'common' ? '' : '_' . $type).':'.\Illuminate\Support\Str::snake($button) }}">
@@ -141,7 +145,7 @@
 
 
     <div class="bg-gray-900 py-20 mt-24">
-        <div class="max-w-screen-lg xl:max-w-screen-xl mx-auto">
+        <div class="max-w-screen-lg xl:max-w-screen-xl mx-auto px-10">
             <h3 class="text-3xl lg:text-5xl leading-none font-extrabold text-yellow-200 tracking-tight mb-8">
                 How to run?
             </h3>
@@ -151,7 +155,7 @@
             </p>
 
             <div class="mb-10 flex">
-                <code class="select-all cursor-pointer w-auto bg-gray-50 text-gray-800 font-semibold hover:text-gray-700 font-mono px-3 py-2 border border-gray-200 hover:border-blue-600 rounded-full transition-colors duration-200">
+                <code class="overflow-hidden select-all cursor-pointer w-auto bg-gray-50 text-gray-800 font-semibold hover:text-gray-700 font-mono px-3 py-2 border border-gray-200 hover:border-blue-600 rounded-full transition-colors duration-200 text-nowrap break-keep">
                     docker run -p 8000:8000 -p 1025:1025 -p 9912:9912 -p 9913:9913 ghcr.io/buggregator/server:latest
                 </code>
             </div>
@@ -165,12 +169,11 @@
 
     <hr>
 
-    <div class="max-w-screen-lg xl:max-w-screen-xl mx-auto py-10 my-12">
+    <div class="max-w-screen-lg xl:max-w-screen-xl mx-auto py-10 my-12 px-10">
         <div>
             <h3 class="text-3xl lg:text-5xl leading-none font-extrabold text-blue-800 tracking-tight mb-8">
                 Features
             </h3>
-
 
             <div class="border p-8 rounded-lg flex flex-col gap-4 hover:shadow-xl transition mb-6 bg-[url('/images/bg.jpg')]">
                 <div>
@@ -267,7 +270,7 @@
 
 
     <div class="bg-white py-12">
-        <div class="max-w-screen-lg xl:max-w-screen-xl mx-auto my-12">
+        <div class="max-w-screen-lg xl:max-w-screen-xl mx-auto my-12 px-10">
             <h3 class="text-3xl lg:text-5xl leading-none font-extrabold text-blue-800 tracking-tight mb-8">
                 Buggregator Trap
             </h3>
@@ -279,7 +282,7 @@
             </p>
 
             <div class="mb-6 flex">
-                <code class="select-all cursor-pointer w-auto bg-gray-50 text-gray-800 font-semibold hover:text-gray-700 font-mono px-3 py-2 border border-gray-200 hover:border-blue-600 rounded-full transition-colors duration-200">
+                <code class="overflow-hidden select-all cursor-pointer w-auto bg-gray-50 text-gray-800 font-semibold hover:text-gray-700 font-mono px-3 py-2 border border-gray-200 hover:border-blue-600 rounded-full transition-colors duration-200 text-nowrap break-keep">
                     composer require --dev buggregator/trap -W
                 </code>
             </div>
@@ -362,7 +365,7 @@
         },
         template: `
             <div class="flex flex-col items-center h-full">
-                <div :class="deviceClass" class=" shadow-xl">
+                <div :class="deviceClass" class="shadow-xl md:rounded-xl">
                     <div>
                         <slot></slot>
                     </div>
