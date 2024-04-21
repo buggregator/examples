@@ -157,13 +157,16 @@ Route::get('/', function () {
 
     return view('welcome', compact('buttonGroups'));
 });
-
-
 Route::post('/_profiler', \App\Http\Controllers\CallAction::class)->middleware(
     \App\Http\Middleware\ProfilerMiddleware::class,
 );
 
 Route::post('/', \App\Http\Controllers\CallAction::class);
+
+Route::post('/example/call', \App\Http\Controllers\CallAction::class);
+Route::post('/example/call/profiler', \App\Http\Controllers\CallAction::class)->middleware(
+    \App\Http\Middleware\ProfilerMiddleware::class,
+);
 
 Route::middleware(\Inspector\Laravel\Middleware\WebRequestMonitoring::class)
     ->get('/inspector', function () {
