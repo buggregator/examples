@@ -14,6 +14,11 @@ RUN pecl install xhprof
 
 RUN docker-php-ext-enable xhprof
 
+# PDO database drivers support
+RUN apk --no-cache add postgresql-dev
+RUN docker-php-ext-install \
+        pgsql pdo_pgsql
+
 ARG CACHEBUST=1
 
 # Install Composer
