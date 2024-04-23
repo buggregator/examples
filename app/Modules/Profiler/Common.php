@@ -5,14 +5,14 @@ namespace App\Modules\Profiler;
 
 trait Common
 {
-    public function setupProfiler()
+    public function setupProfiler(): void
     {
         ray()->disable();
         logger()->setDefaultDriver('null');
     }
 
     /** @test */
-    function profilerReport()
+    function profilerReport(): void
     {
     }
 }

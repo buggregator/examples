@@ -1,66 +1,74 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Modules\Ray;
 
+use App\RandomPhraseGenerator;
+
 trait RayCommon
 {
     /** @test */
-    function rayNewScreen()
+    function rayNewScreen(): void
     {
         ray()->newScreen();
     }
 
     /** @test */
-    function rayNewScreenWithName()
+    function rayNewScreenWithName(): void
     {
         ray()->newScreen('My debug screen');
     }
 
     /** @test */
-    function rayClearAll()
+    function rayClearAll(): void
     {
         ray()->clearAll();
     }
 
     /** @test */
-    function rayClearScreen()
+    function rayClearScreen(): void
     {
         ray()->clearScreen();
     }
 
     /** @test */
-    function rayInt()
+    function rayInt(): void
     {
-        ray(...range(0, 9));
+        ray(4, 8, 15, 16, 23, 42);
     }
 
     /** @test */
-    function rayString()
+    function rayString(RandomPhraseGenerator $generator): void
     {
-        ray('Hello', 'World');
+        ray('Here is a random phrase', $generator->generate('Buggregator'));
     }
 
     /** @test */
-    function rayArray()
+    function rayArray(): void
     {
-        ray(['a' => 1, 'b' => ['c' => 3]]);
+        ray(['a' => 4, 'b' => ['c' => 8, 'd' => 15], 'e' => [16, 23, 42]]);
     }
 
     /** @test */
-    function rayBool()
+    function rayBool(): void
     {
         ray(true, false);
     }
 
     /** @test */
-    function rayObject()
+    function rayObject(RandomPhraseGenerator $generator): void
     {
+        $object = new \stdClass();
+        $object->name = 'Buggregator';
+        $object->funnyFact = $generator->generate('Buggregator');
+        ray($object);
+
         ray(ray());
     }
 
     /** @test */
-    function rayColors()
+    function rayColors(): void
     {
         ray('this is green')->green();
         ray('this is orange')->orange();
@@ -71,7 +79,7 @@ trait RayCommon
     }
 
     /** @test */
-    function raySizes()
+    function raySizes(): void
     {
         ray('small')->small();
         ray('regular');
@@ -79,31 +87,31 @@ trait RayCommon
     }
 
     /** @test */
-    function rayLabels()
+    function rayLabels(): void
     {
         ray(['John', 'Paul', 'George', 'Ringo'])->label('Beatles');
     }
 
     /** @test */
-    function rayCaller()
+    function rayCaller(): void
     {
         ray()->caller();
     }
 
     /** @test */
-    function rayTrace()
+    function rayTrace(): void
     {
         ray()->trace();
     }
 
     /** @test */
-    function rayPause()
+    function rayPause(): void
     {
         ray()->pause();
     }
 
     /** @test */
-    function rayCounter()
+    function rayCounter(): void
     {
         foreach (range(1, 2) as $i) {
             ray()->count();
@@ -115,7 +123,7 @@ trait RayCommon
     }
 
     /** @test */
-    function rayCounterWithName()
+    function rayCounterWithName(): void
     {
         foreach (range(1, 4) as $i) {
             ray()->count('first');
@@ -129,7 +137,7 @@ trait RayCommon
     }
 
     /** @test */
-    function rayLimit()
+    function rayLimit(): void
     {
         foreach (range(1, 10) as $i) {
             ray()->limit(3)->text("A #{$i}"); // counts to 3
@@ -139,13 +147,13 @@ trait RayCommon
     }
 
     /** @test */
-    function rayClassName()
+    function rayClassName(): void
     {
         ray()->className($this);
     }
 
     /** @test */
-    function rayMeasure()
+    function rayMeasure(): void
     {
         ray()->measure();
 
@@ -159,7 +167,7 @@ trait RayCommon
     }
 
     /** @test */
-    function rayJson()
+    function rayJson(): void
     {
         ray()->toJson(['a' => 1, 'b' => ['c' => 3]]);
 
@@ -170,36 +178,36 @@ trait RayCommon
         ray()->toJson(
             ['a' => 1, 'b' => ['c' => 3]],
             ['d' => ['e' => 5]],
-            $object
+            $object,
         );
 
         ray()->json(
-            json_encode(['a' => 1, 'b' => ['c' => 3]])
+            json_encode(['a' => 1, 'b' => ['c' => 3]]),
         );
     }
 
     /** @test */
-    function rayXml()
+    function rayXml(RandomPhraseGenerator $generator): void
     {
         ray()->xml(
-            '<one><two><three>3</three></two></one>'
+            '<one><two><three>'.$generator->generate('Buggregator').'</three></two></one>',
         );
     }
 
     /** @test */
-    function rayCarbon()
+    function rayCarbon(): void
     {
         ray()->carbon(new \Carbon\Carbon());
     }
 
     /** @test */
-    function rayFile()
+    function rayFile(): void
     {
         ray()->file(base_path('.env'));
     }
 
     /** @test */
-    function rayTable()
+    function rayTable(): void
     {
         ray()->table([
             'First' => 'First value',
@@ -211,55 +219,55 @@ trait RayCommon
     }
 
     /** @test */
-    function rayImage()
+    function rayImage(): void
     {
         ray()->image('https://placekitten.com/200/300');
     }
 
     /** @test */
-    function rayHtml()
+    function rayHtml(RandomPhraseGenerator $generator): void
     {
-        ray()->html('<b>Bold string<b>');
+        ray()->html('<b>'.$generator->generate('Buggregator').'<b>');
     }
 
     /** @test */
-    function rayText()
+    function rayText(RandomPhraseGenerator $generator): void
     {
-        ray()->text('<em>this string is html encoded</em>');
+        ray()->text('<em>'.$generator->generate('Buggregator').'</em>');
         ray()->text('  whitespace formatting' . PHP_EOL . '   is preserved as well.');
     }
 
     /** @test */
-    function rayHide()
+    function rayHide(): void
     {
         ray($this)->hide();
     }
 
     /** @test */
-    function rayNotify()
+    function rayNotify(): void
     {
         ray()->notify('This is my notification');
     }
 
     /** @test */
-    function rayPhpinfo()
+    function rayPhpinfo(): void
     {
         ray()->phpinfo();
     }
 
     /** @test */
-    function rayException()
+    function rayException(RandomPhraseGenerator $generator): void
     {
         try {
-            throw new \Exception('Something went wrong');
+            throw new \Exception($generator->generateException('Buggregator'));
         } catch (\Exception $e) {
             ray()->exception($e);
         }
     }
 
     /** @test */
-    function rayMarkdown()
+    function rayMarkdown(RandomPhraseGenerator $generator): void
     {
-        ray()->markdown('# Hello World');
+        ray()->markdown('# ' . $generator->generate('Buggregator'));
     }
 }

@@ -5,24 +5,25 @@ namespace App\Modules\Smtp;
 
 use App\Mail\OrderShipped;
 use App\Mail\WelcomeMail;
+use App\RandomPhraseGenerator;
 use Illuminate\Support\Facades\Mail;
 
 trait Common
 {
-    public function setUpSmtp()
+    public function setUpSmtp(): void
     {
         ray()->disable();
     }
 
     /** @test */
-    function smtpOrderShipped()
+    function smtpOrderShipped(RandomPhraseGenerator $generator): void
     {
         Mail::to([$this->faker->email, $this->faker->email])
-            ->send(new OrderShipped($this->faker->sentence));
+            ->send(new OrderShipped($generator->generateEmailSubject()));
     }
 
     /** @test */
-    function smtpWelcomeMail()
+    function smtpWelcomeMail(): void
     {
         Mail::to($this->faker->email)->send(new WelcomeMail());
     }

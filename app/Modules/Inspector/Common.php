@@ -9,13 +9,13 @@ use Illuminate\Support\Facades\Route;
 
 trait Common
 {
-    public function setUpInspector()
+    public function setUpInspector(): void
     {
         ray()->disable();
     }
 
     /** @test */
-    public function inspectorRequest()
+    public function inspectorRequest(): void
     {
         $request = Request::create('/inspector');
 
@@ -23,7 +23,7 @@ trait Common
     }
 
     /** @test */
-    public function inspectorCommand()
+    public function inspectorCommand(): void
     {
         Artisan::call('inspector:test');
     }

@@ -1,13 +1,15 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Modules\VarDump;
 
+use App\RandomPhraseGenerator;
 use Symfony\Component\VarDumper\VarDumper;
 
 trait Common
 {
-    public function setUpVarDumper()
+    public function setUpVarDumper(): void
     {
         ray()->disable();
 
@@ -17,40 +19,45 @@ trait Common
     }
 
     /** @test */
-    function varDumpString()
+    function varDumpString(RandomPhraseGenerator $generator): void
     {
-        dump('Hello', 'World');
+        dump('Here is a random phrase', $generator->generate('Buggregator'));
     }
 
     /** @test */
-    function varDumpArray()
+    function varDumpArray(): void
     {
-        dump(['a' => 1, 'b' => ['c' => 3]]);
+        dump(['a' => 4, 'b' => ['c' => 8, 'd' => 15], 'e' => [16, 23, 42]]);
     }
 
     /** @test */
-    function varDumpBool()
+    function varDumpBool(): void
     {
         dump(true, false);
     }
 
     /** @test */
-    function varDumpInt()
+    function varDumpInt(): void
     {
-        dump(1);
+        dump(4, 8, 15, 16, 23, 42);
     }
 
     /** @test */
-    function varDumpObject()
+    function varDumpObject(RandomPhraseGenerator $generator): void
     {
+        $object = new \stdClass();
+        $object->name = 'Buggregator';
+        $object->funnyFact = $generator->generate('Buggregator');
+
+        dump($object);
         dump(ray());
     }
 
     /** @test */
-    function varDumpException()
+    function varDumpException(RandomPhraseGenerator $generator): void
     {
         try {
-            throw new \Exception('Something went wrong');
+            throw new \Exception($generator->generateException('Buggregator'));
         } catch (\Exception $e) {
             dump($e);
         }

@@ -3,21 +3,23 @@ declare(strict_types=1);
 
 namespace App\Modules\Monolog;
 
+use App\RandomPhraseGenerator;
+
 trait Common
 {
-    public function setUpSocketMonolog()
+    public function setUpSocketMonolog(): void
     {
         logger()->setDefaultDriver('socket');
         ray()->disable();
     }
 
-    public function setUpSlackMonolog()
+    public function setUpSlackMonolog(): void
     {
         logger()->setDefaultDriver('slack');
         ray()->disable();
     }
 
-    public function setUpRayLogger()
+    public function setUpRayLogger(): void
     {
         logger()->setDefaultDriver('null');
     }
@@ -25,74 +27,74 @@ trait Common
     /**
      * @test
      */
-    function monologDebug()
+    function monologDebug(RandomPhraseGenerator $generator): void
     {
-        logger()->debug('Hello debug', [
+        logger()->debug($generator->generate('Buggregator'), [
             'foo' => 'bar'
         ]);
     }
 
     /** @test */
-    function monologInfo()
+    function monologInfo(RandomPhraseGenerator $generator): void
     {
-        logger()->info('Hello info', [
+        logger()->info($generator->generate('Buggregator'), [
             'foo' => 'bar'
         ]);
     }
 
     /** @test */
-    function monologWarning()
+    function monologWarning(RandomPhraseGenerator $generator): void
     {
-        logger()->warning('Hello warning', [
+        logger()->warning($generator->generate('Buggregator'), [
             'foo' => 'bar'
         ]);
     }
 
     /** @test */
-    function monologError()
+    function monologError(RandomPhraseGenerator $generator): void
     {
-        logger()->error('Hello error', [
+        logger()->error($generator->generate('Buggregator'), [
             'foo' => 'bar'
         ]);
     }
 
     /** @test */
-    function monologCritical()
+    function monologCritical(RandomPhraseGenerator $generator): void
     {
-        logger()->critical('Hello critical', [
+        logger()->critical($generator->generate('Buggregator'), [
             'foo' => 'bar'
         ]);
     }
 
     /** @test */
-    function monologNotice()
+    function monologNotice(RandomPhraseGenerator $generator): void
     {
-        logger()->notice('Hello notice', [
+        logger()->notice($generator->generate('Buggregator'), [
             'foo' => 'bar'
         ]);
     }
 
     /** @test */
-    function monologAlert()
+    function monologAlert(RandomPhraseGenerator $generator): void
     {
-        logger()->alert('Hello alert', [
+        logger()->alert($generator->generate('Buggregator'), [
             'foo' => 'bar'
         ]);
     }
 
     /** @test */
-    function monologEmergency()
+    function monologEmergency(RandomPhraseGenerator $generator): void
     {
-        logger()->emergency('Hello emergency', [
+        logger()->emergency($generator->generate('Buggregator'), [
             'foo' => 'bar'
         ]);
     }
 
     /** @test */
-    function monologException()
+    function monologException(RandomPhraseGenerator $generator): void
     {
         try {
-            throw new \Exception('Something went wrong');
+            throw new \Exception($generator->generateException('Buggregator'));
         } catch (\Throwable $e) {
             logger()->error($e);
         }

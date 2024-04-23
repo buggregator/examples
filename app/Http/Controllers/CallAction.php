@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Http\Controllers;
@@ -11,6 +12,7 @@ use App\Modules\Profiler\Common as ProfilerActions;
 use App\Modules\Smtp\Common as SmtpActions;
 use App\Modules\VarDump\Common as VarDumpActions;
 use App\Modules\Inspector\Common as InspectorActions;
+use App\RandomPhraseGenerator;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -53,7 +55,7 @@ class CallAction extends Controller
         'ray_logs:exception' => 'monologException',
     ];
 
-    public function __invoke(Request $request)
+    public function __invoke(Request $request, RandomPhraseGenerator $generator)
     {
         $this->setUpFaker();
 
@@ -65,14 +67,14 @@ class CallAction extends Controller
 
         foreach ($this->setUpMap as $a => $method) {
             if (Str::startsWith($action, $a)) {
-                call_user_func([$this, $method]);
+                call_user_func([$this, $method], $generator);
                 break;
             }
         }
 
         foreach ($this->actionsMap as $a => $method) {
             if ($action === $a) {
-                call_user_func([$this, $method]);
+                call_user_func([$this, $method], $generator);
                 return 'ok';
             }
         }
@@ -80,7 +82,7 @@ class CallAction extends Controller
         $method = Str::studly(Str::replace(':', '_', $action));
 
         if (method_exists($this, $method)) {
-            call_user_func([$this, $method]);
+            call_user_func([$this, $method], $generator);
             return 'ok';
         }
 

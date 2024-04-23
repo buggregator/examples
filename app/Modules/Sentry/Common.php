@@ -1,38 +1,40 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Modules\Sentry;
 
+use App\RandomPhraseGenerator;
 use Sentry\SentrySdk;
 
 trait Common
 {
-    public function setupSentryLogger()
+    public function setupSentryLogger(): void
     {
         ray()->disable();
         logger()->setDefaultDriver('null');
     }
 
     /** @test */
-    function sentryReport()
+    function sentryReport(RandomPhraseGenerator $generator): void
     {
         try {
             \Illuminate\Support\Facades\Artisan::call('migrate:fresh', ['--force' => true]);
             \Illuminate\Support\Facades\Artisan::call('db:seed', ['--force' => true]);
-            throw new \Exception('Something went wrong');
+            throw new \Exception($generator->generateException('Buggregator'));
         } catch (\Throwable $e) {
             report($e);
         }
     }
 
     /** @test */
-    function sentryEvent()
+    function sentryEvent(RandomPhraseGenerator $generator): void
     {
         \Illuminate\Support\Facades\Artisan::call('migrate:fresh', ['--force' => true]);
         \Illuminate\Support\Facades\Artisan::call('db:seed', ['--force' => true]);
         $currentHub = SentrySdk::getCurrentHub();
         $client = $currentHub->getClient();
 
-        $currentHub->captureMessage('This is a test message from the Sentry bundle');
+        $currentHub->captureMessage($generator->generateException('Buggregator'));
     }
 }

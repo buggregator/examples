@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Modules\Ray;
@@ -6,6 +7,7 @@ namespace App\Modules\Ray;
 use App\Jobs\TestJob;
 use App\Mail\OrderShipped;
 use App\Models\User;
+use App\RandomPhraseGenerator;
 use Illuminate\Database\Events\ModelsPruned;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
@@ -14,14 +16,14 @@ use Illuminate\Support\Str;
 trait RayLaravel
 {
     /** @test */
-    function rayShowQueries()
+    function rayShowQueries(): void
     {
         ray()->showQueries();
         User::firstWhere('email', 'john@example.com');
     }
 
     /** @test */
-    function rayCountQueries()
+    function rayCountQueries(): void
     {
         ray()->countQueries(function () {
             User::all();
@@ -30,7 +32,7 @@ trait RayLaravel
     }
 
     /** @test */
-    function rayManuallyShowedQuery()
+    function rayManuallyShowedQuery(): void
     {
         User::query()
             ->where('first_name', 'John')
@@ -41,21 +43,21 @@ trait RayLaravel
     }
 
     /** @test */
-    function rayShowEvents()
+    function rayShowEvents(): void
     {
         ray()->showEvents();
         event(new ModelsPruned(new User(), 100));
     }
 
     /** @test */
-    function rayShowJobs()
+    function rayShowJobs(): void
     {
         ray()->showJobs();
         dispatch(new TestJob('my-test-job'));
     }
 
     /** @test */
-    function rayShowCache()
+    function rayShowCache(): void
     {
         ray()->showCache();
 
@@ -67,31 +69,31 @@ trait RayLaravel
     }
 
     /** @test */
-    function rayShowHttpClientRequests()
+    function rayShowHttpClientRequests(): void
     {
         ray()->showHttpClientRequests();
         Http::get('https://ya.ru', [
-            'heloo' => 'world'
+            'heloo' => 'world',
         ]);
     }
 
     /** @test */
-    function rayHandlingModels()
+    function rayHandlingModels(): void
     {
         ray()->model(
-            User::firstWhere('email', 'john@example.com')
+            User::firstWhere('email', 'john@example.com'),
         );
 
         ray()->model(new User([
             'username' => 'john',
-            'email' => 'john@example.com'
+            'email' => 'john@example.com',
         ]));
     }
 
     /** @test */
-    function rayMailable()
+    function rayMailable(RandomPhraseGenerator $generator): void
     {
-        $mail = new OrderShipped($this->faker->sentence);
+        $mail = new OrderShipped($generator->generateEmailSubject());
         $mail->from($this->faker->email, 'Test from');
         $mail->cc($this->faker->email);
         $mail->bcc($this->faker->email);
@@ -101,15 +103,15 @@ trait RayLaravel
     }
 
     /** @test */
-    function rayShowViews()
+    function rayShowViews(RandomPhraseGenerator $generator): void
     {
         ray()->showViews();
 
-        view('inspector', ['name' => 'John Doe'])->render();
+        view('inspector', ['phrase' => $generator->generate('Buggregator')])->render();
     }
 
     /** @test */
-    function rayCollections()
+    function rayCollections(): void
     {
         collect(['a', 'b', 'c'])
             ->ray('original collection') // displays the original collection
@@ -118,7 +120,7 @@ trait RayLaravel
     }
 
     /** @test */
-    function rayStrString()
+    function rayStrString(): void
     {
         Str::of('Lorem')
             ->append(' Ipsum')
@@ -127,7 +129,7 @@ trait RayLaravel
     }
 
     /** @test */
-    function rayEnv()
+    function rayEnv(): void
     {
         ray()->env();
     }
