@@ -8,6 +8,6 @@
     <title>Buggregator test console</title>
 </head>
 <body class="p-5">
-    Hello world
+    {{ $phrase }}
 </body>
 </html>

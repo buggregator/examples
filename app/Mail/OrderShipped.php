@@ -15,6 +15,7 @@ class OrderShipped extends Mailable
         $this->subject($subject)
             ->cc(['cc@site.com'])
             ->bcc(['bcc@site.com'])
+            ->attachFromStorage('order.txt')
             ->replyTo('reply-to@site.com', 'To name');
     }
 
