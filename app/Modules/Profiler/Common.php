@@ -1,7 +1,10 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Modules\Profiler;
+
+use App\MyService\MyService;
 
 trait Common
 {
@@ -14,5 +17,8 @@ trait Common
     /** @test */
     function profilerReport(): void
     {
+        \usleep(10_000);
+
+        app(MyService::class)->call();
     }
 }

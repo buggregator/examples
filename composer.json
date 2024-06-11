@@ -16,6 +16,7 @@
         "spiral-packages/profiler": "^1.0"
     },
     "require-dev": {
+        "buggregator/trap": "^1.9",
         "fakerphp/faker": "^1.9.1",
         "mockery/mockery": "^1.4.2",
         "phpunit/phpunit": "^9.3.3"
@@ -55,7 +56,10 @@
     "config": {
         "optimize-autoloader": true,
         "preferred-install": "dist",
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "php-http/discovery": true
+        }
     },
     "minimum-stability": "dev",
     "prefer-stable": true

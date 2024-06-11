@@ -1,5 +1,8 @@
 @component('mail::message')
 
+<p style="text-align: center;">
+    <img src="cid:logo" width="100px">
+</p>
 
 Debug with Buggregator to fix problems faster
 
@@ -10,7 +13,7 @@ Debug with Buggregator to fix problems faster
 * Measure performance & set breakpoints
 
 @component('mail::button', ['url' => 'https://github.com/buggregator/app'])
-    Download
+Download
 @endcomponent
 
 Thanks,<br>

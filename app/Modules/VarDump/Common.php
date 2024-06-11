@@ -39,7 +39,14 @@ trait Common
     /** @test */
     function varDumpInt(): void
     {
-        dump(4, 8, 15, 16, 23, 42);
+        dump(
+            four: 4,
+            eight: 8,
+            fifteen: 15,
+            sixteen: 16,
+            twentythree: 23,
+            fortytwo: 42,
+        );
     }
 
     /** @test */
@@ -50,7 +57,29 @@ trait Common
         $object->funnyFact = $generator->generate('Buggregator');
 
         dump($object);
-        dump(ray());
+    }
+
+    /** @test */
+    function varDumpCode(RandomPhraseGenerator $generator): void
+    {
+        trap(
+            sprintf(
+                <<<PHP
+<?php
+
+declare(strict_types=1);
+
+final class Buggregator
+{
+    public function dump(): string
+    {
+        return '%s';
+    }
+}
+PHP,
+                $generator->generate('Buggregator'),
+            ),
+        )->code('php');
     }
 
     /** @test */
