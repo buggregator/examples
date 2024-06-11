@@ -32,7 +32,7 @@ ARG CACHEBUST=2
 ENV COMPOSER_ALLOW_SUPERUSER=1
 
 RUN git clone https://github.com/buggregator/examples.git /app
-RUN composer install
+RUN composer update
 
 RUN chmod 0777 storage -R
 RUN chmod 0777 bootstrap -R
