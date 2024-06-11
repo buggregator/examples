@@ -7,6 +7,7 @@ RUN apk add --no-cache git curl sqlite curl-dev
 RUN docker-php-ext-configure curl && docker-php-ext-install curl
 RUN docker-php-ext-install opcache && docker-php-ext-enable opcache
 RUN docker-php-ext-install pcntl
+RUN docker-php-ext-install sockets
 RUN apk add --no-cache libzip-dev && docker-php-ext-configure zip && docker-php-ext-install zip
 
 RUN apk --no-cache add pcre-dev ${PHPIZE_DEPS}
