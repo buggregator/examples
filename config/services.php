@@ -34,4 +34,7 @@ return [
         'endpoint' => env('PROFILER_ENDPOINT', 'http://127.0.0.1/api/profiler/store'),
     ],
 
+    'http_dump' => [
+        'endpoint' => env('HTTP_DUMP_ENDPOINT', 'http://http-dump@buggregator-demo:8000'),
+    ],
 ];

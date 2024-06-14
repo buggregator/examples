@@ -12,6 +12,7 @@ use App\Modules\Profiler\Common as ProfilerActions;
 use App\Modules\Smtp\Common as SmtpActions;
 use App\Modules\VarDump\Common as VarDumpActions;
 use App\Modules\Inspector\Common as InspectorActions;
+use App\Modules\HttpDump\Common as HttDumpActions;
 use App\RandomPhraseGenerator;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Http\Request;
@@ -27,6 +28,7 @@ class CallAction extends Controller
         InspectorActions,
         InspectorActions,
         ProfilerActions,
+        HttDumpActions,
         WithFaker;
 
     private array $setUpMap = [
@@ -36,6 +38,7 @@ class CallAction extends Controller
         'monolog:' => 'setUpSocketMonolog',
         'var_dump:' => 'setUpVarDumper',
         'inspector:' => 'setUpInspector',
+        'http:' => 'setUpHttp',
     ];
 
     private array $replaceMap = [

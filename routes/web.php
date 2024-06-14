@@ -93,7 +93,7 @@ Route::get('/', function () {
                 ],
             ],
             'docs' => 'https://docs.buggregator.dev/config/sentry.html',
-            'vendor' => 'https://docs.sentry.io/platforms/php/'
+            'vendor' => 'https://docs.sentry.io/platforms/php/',
         ],
         'monolog' => [
             'title' => 'Buggregator can receive logs from monolog/monolog package.',
@@ -112,7 +112,7 @@ Route::get('/', function () {
                 ],
             ],
             'docs' => 'https://docs.buggregator.dev/config/monolog.html',
-            'vendor' => 'https://seldaek.github.io/monolog/'
+            'vendor' => 'https://seldaek.github.io/monolog/',
         ],
         'smtp' => [
             'title' => 'SMTP Email Testing',
@@ -139,7 +139,7 @@ Route::get('/', function () {
                 ],
             ],
             'docs' => 'https://docs.buggregator.dev/config/var-dumper.html',
-            'vendor' => 'https://symfony.com/doc/current/components/var_dumper.html'
+            'vendor' => 'https://symfony.com/doc/current/components/var_dumper.html',
         ],
         'inspector' => [
             'title' => 'It can be used to receive Inspector reports from your application.',
@@ -151,7 +151,20 @@ Route::get('/', function () {
                 ],
             ],
             'docs' => 'https://docs.buggregator.dev/config/inspector.html',
-            'vendor' => 'https://inspector.dev/'
+            'vendor' => 'https://inspector.dev/',
+        ],
+        'http' => [
+            'title' => 'Http dumps',
+            'description' => '-',
+            'events' => [
+                'common' => [
+                    'get',
+                    'post',
+                    'put',
+                    'patch',
+                    'delete',
+                ],
+            ],
         ],
     ];
 
