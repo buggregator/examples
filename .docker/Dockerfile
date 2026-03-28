@@ -18,7 +18,7 @@ RUN docker-php-ext-enable xhprof
 # PDO database drivers support
 RUN apk --no-cache add postgresql-dev
 RUN docker-php-ext-install \
-        pgsql pdo_pgsql
+        pgsql pdo_pgsql pdo_sqlite
 
 ARG CACHEBUST=1
 
@@ -39,4 +39,4 @@ RUN chmod 0777 bootstrap -R
 
 EXPOSE 8000
 
-CMD php artisan serve --host=0.0.0.0
+CMD php artisan migrate --force && php artisan serve --host=0.0.0.0

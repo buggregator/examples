@@ -37,4 +37,8 @@ return [
     'http_dump' => [
         'endpoint' => env('HTTP_DUMP_ENDPOINT', 'http://http-dump@buggregator-demo:8000'),
     ],
+
+    'sms' => [
+        'endpoint' => env('SMS_ENDPOINT', 'http://buggregator-demo:8000/sms'),
+    ],
 ];

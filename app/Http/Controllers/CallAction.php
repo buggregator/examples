@@ -9,6 +9,7 @@ use App\Modules\Ray\RayCommon as RayCommonActions;
 use App\Modules\Ray\RayLaravel as RayLaravelActions;
 use App\Modules\Sentry\Common as SentryActions;
 use App\Modules\Profiler\Common as ProfilerActions;
+use App\Modules\Sms\Common as SmsActions;
 use App\Modules\Smtp\Common as SmtpActions;
 use App\Modules\VarDump\Common as VarDumpActions;
 use App\Modules\Inspector\Common as InspectorActions;
@@ -23,6 +24,7 @@ class CallAction extends Controller
     use MonologActions,
         RayCommonActions, RayLaravelActions,
         SentryActions,
+        SmsActions,
         SmtpActions,
         VarDumpActions,
         InspectorActions,
@@ -38,6 +40,7 @@ class CallAction extends Controller
         'monolog:' => 'setUpSocketMonolog',
         'var_dump:' => 'setUpVarDumper',
         'inspector:' => 'setUpInspector',
+        'sms:' => 'setUpSms',
         'http:' => 'setUpHttp',
     ];
 
