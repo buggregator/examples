@@ -3,7 +3,7 @@ FROM php:8.1-alpine
 # Optional, force UTC as server time
 RUN echo "UTC" > /etc/timezone
 
-RUN apk add --no-cache git curl sqlite curl-dev
+RUN apk add --no-cache git curl sqlite sqlite-dev curl-dev
 RUN docker-php-ext-configure curl && docker-php-ext-install curl
 RUN docker-php-ext-install opcache && docker-php-ext-enable opcache
 RUN docker-php-ext-install pcntl
