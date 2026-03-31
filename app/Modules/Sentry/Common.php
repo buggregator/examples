@@ -18,6 +18,14 @@ trait Common
     {
         ray()->disable();
         logger()->setDefaultDriver('null');
+
+        // Disable Inspector SDK completely to prevent duplicate events.
+        // Inspector listens to MessageLogged events and would capture the same
+        // exception, plus its HTTP transport creates an extra http-dump event.
+        config(['inspector.enable' => false]);
+        if (app()->bound('inspector')) {
+            app('inspector')->disable();
+        }
     }
 
     /** @test */

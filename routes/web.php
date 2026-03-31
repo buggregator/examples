@@ -54,6 +54,7 @@ Route::get('/', function () {
                     'PasswordReset',
                     'WeeklyReport',
                     'Invoice',
+                    'ContactForm',
                 ],
             ],
         ],
