@@ -14,6 +14,7 @@ use App\Modules\Smtp\Common as SmtpActions;
 use App\Modules\VarDump\Common as VarDumpActions;
 use App\Modules\Inspector\Common as InspectorActions;
 use App\Modules\HttpDump\Common as HttDumpActions;
+use App\Modules\HttpProxy\Common as HttpProxyActions;
 use App\RandomPhraseGenerator;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Http\Request;
@@ -28,9 +29,9 @@ class CallAction extends Controller
         SmtpActions,
         VarDumpActions,
         InspectorActions,
-        InspectorActions,
         ProfilerActions,
         HttDumpActions,
+        HttpProxyActions,
         WithFaker;
 
     private array $setUpMap = [
@@ -42,6 +43,7 @@ class CallAction extends Controller
         'inspector:' => 'setUpInspector',
         'sms:' => 'setUpSms',
         'http:' => 'setUpHttp',
+        'http_proxy:' => 'setUpHttpProxy',
     ];
 
     private array $replaceMap = [

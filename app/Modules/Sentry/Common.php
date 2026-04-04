@@ -9,10 +9,9 @@ use App\RandomPhraseGenerator;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Validation\ValidationException;
-use Sentry\SentrySdk;
 use Sentry\State\Scope;
-use Sentry\Tracing\TransactionContext;
-use Sentry\Tracing\SpanContext;
+use function Sentry\captureMessage;
+use function Sentry\configureScope;
 
 trait Common
 {
@@ -20,6 +19,11 @@ trait Common
     {
         ray()->disable();
         logger()->setDefaultDriver('null');
+
+        // Disable Inspector SDK completely to prevent duplicate events.
+        // Inspector listens to MessageLogged events and would capture the same
+        // exception, plus its HTTP transport creates an extra http-dump event.
+        config(['inspector.enable' => false]);
     }
 
     /** @test */
@@ -40,7 +44,7 @@ trait Common
         Artisan::call('migrate:fresh', ['--force' => true]);
         Artisan::call('db:seed', ['--force' => true]);
 
-        SentrySdk::getCurrentHub()->captureMessage($generator->generateException('Buggregator'));
+        captureMessage($generator->generateException('Buggregator'));
     }
 
     /** @test */
@@ -69,7 +73,7 @@ trait Common
     /** @test */
     function sentryWithContext(RandomPhraseGenerator $generator): void
     {
-        \Sentry\configureScope(function (Scope $scope): void {
+        configureScope(function (Scope $scope): void {
             $scope->setUser([
                 'id' => 42,
                 'email' => 'john@example.com',
