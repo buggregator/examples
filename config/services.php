@@ -41,4 +41,8 @@ return [
     'sms' => [
         'endpoint' => env('SMS_ENDPOINT', 'http://buggregator-demo:8000/sms'),
     ],
+
+    'buggregator_proxy' => [
+        'url' => env('BUGGREGATOR_PROXY_URL', 'http://127.0.0.1:8080'),
+    ],
 ];

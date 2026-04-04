@@ -1,41 +1,43 @@
-FROM php:8.1-alpine
+ARG PHP_IMAGE=8.3-cli-alpine3.21
 
-# Optional, force UTC as server time
-RUN echo "UTC" > /etc/timezone
+FROM --platform=${TARGETPLATFORM:-linux/amd64} php:${PHP_IMAGE}
 
-RUN apk add --no-cache git curl sqlite sqlite-dev curl-dev
-RUN docker-php-ext-configure curl && docker-php-ext-install curl
-RUN docker-php-ext-install opcache && docker-php-ext-enable opcache
-RUN docker-php-ext-install pcntl
-RUN docker-php-ext-install sockets
-RUN apk add --no-cache libzip-dev && docker-php-ext-configure zip && docker-php-ext-install zip
-
-RUN apk --no-cache add pcre-dev ${PHPIZE_DEPS}
-RUN pecl install xhprof
-
-RUN docker-php-ext-enable xhprof
-
-# PDO database drivers support
-RUN apk --no-cache add postgresql-dev
-RUN docker-php-ext-install \
-        pgsql pdo_pgsql pdo_sqlite
-
-ARG CACHEBUST=1
-
-# Install Composer
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-
-WORKDIR /app
-
-ARG CACHEBUST=2
-
+ENV TZ="UTC"
 ENV COMPOSER_ALLOW_SUPERUSER=1
 
-RUN git clone https://github.com/buggregator/examples.git /app
-RUN composer update
+COPY --from=ghcr.io/mlocati/php-extension-installer /usr/bin/install-php-extensions /usr/local/bin/install-php-extensions
 
-RUN chmod 0777 storage -R
-RUN chmod 0777 bootstrap -R
+RUN apk update && apk add --no-cache \
+  bash \
+  ca-certificates \
+  libzip \
+  linux-headers \
+  sqlite sqlite-dev \
+  ${PHPIZE_DEPS}
+
+RUN install-php-extensions intl \
+  && install-php-extensions zip \
+  && install-php-extensions curl \
+  && install-php-extensions opcache \
+  && install-php-extensions pcntl \
+  && install-php-extensions sockets \
+  && install-php-extensions xhprof \
+  && install-php-extensions pdo_sqlite \
+  && install-php-extensions pdo_pgsql pgsql
+
+RUN apk del --no-cache ${PHPIZE_DEPS} \
+    && rm -rf /tmp/*
+
+RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
+
+COPY --from=composer:2.8 /usr/bin/composer /usr/bin/composer
+
+WORKDIR /app
+COPY . /app
+
+RUN composer update --no-dev --optimize-autoloader --no-interaction
+
+RUN chmod -R 0777 storage bootstrap
 
 EXPOSE 8000
 

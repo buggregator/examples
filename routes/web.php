@@ -133,6 +133,21 @@ Route::get('/', function () {
                 ],
             ],
         ],
+        'http_proxy' => [
+            'title' => 'HTTP Proxy',
+            'events' => [
+                'common' => [
+                    'Get',
+                    'Post',
+                    'Put',
+                    'Delete',
+                    'Headers',
+                    'StatusCodes',
+                    'Delay',
+                    'JsonApi',
+                ],
+            ],
+        ],
         'ray' => [
             'title' => 'Ray',
             'events' => [
